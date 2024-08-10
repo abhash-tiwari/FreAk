@@ -15,7 +15,7 @@ import p3 from '../../assets/nike.png'
 
 const Reasons = () => {
   return (
-    <div className='Reasons' id='reasons' >
+    <div className='Reasons' id='Why Us' >
       <div className="left-r">
         <img src={img1} alt="" />
         <img src={img2} alt="" />

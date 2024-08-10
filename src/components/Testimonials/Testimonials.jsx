@@ -11,7 +11,7 @@ const Testimonials = () => {
     const tlen = testimonialsData.length;
 
   return (
-    <div className='testimonials'>
+    <div className='testimonials' id='testimonials'>
         <div className="left-t">
             <span style={{color:'white', fontSize:'3rem'}}>Testimonials</span>
             <span className='stroke-text' style={{fontSize:'3rem'}}>What They</span>

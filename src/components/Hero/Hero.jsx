@@ -5,6 +5,7 @@ import Heart from "../../assets/heart.png"
 import imgB from '../../assets/hero_image_back.png'
 import Calories from "../../assets/calories.png"
 import {motion} from 'framer-motion'
+import NumberCounter from 'number-counter'
 
 
 const Hero = () => {
@@ -12,7 +13,7 @@ const Hero = () => {
   const transition = {type: "spring", duration: 3}
   const mobile = window.innerWidth<=768 ? true : false;
   return (
-    <div className='hero' >
+    <div className='hero' id='Hero'>
       <div className="blur hero-blur"></div>
         <div className="left">
            <div className='ad'>
@@ -42,9 +43,9 @@ const Hero = () => {
  {/* figures div */}
 
  <div className="figures">
-    <div><span>+140</span><span>Expert Coaches</span></div>
-    <div><span>+978</span><span>Members Joined</span></div>
-    <div><span>+50</span><span>Fitness Programs</span></div>
+    <div><span> <NumberCounter end={140} start={120} delay='9' preFix="+" /></span><span>Expert Coaches</span></div>
+    <div><span><NumberCounter end={978} start={900} delay='10' preFix="+" /></span><span>Members Joined</span></div>
+    <div><span><NumberCounter end={50} start={20} delay='4' preFix="+" /></span><span>Fitness Programs</span></div>
  </div>
 
 
@@ -52,7 +53,7 @@ const Hero = () => {
        {/* hero buttons */}
        
        <div className="hero-buttons">
-        <button className="btn">Get Started</button>
+        <button className="btn">Explore</button>
         <button className="btn">Learn More</button>
        </div>
 
@@ -77,7 +78,7 @@ const Hero = () => {
 
             <div className="img-hero"> 
                 <img src={hero} alt="" />
-                <motion.img src={imgB} alt="" className="img-back" initial={{right:"11rem"}} whileInView={{right:"24rem"}} transition={transition}></motion.img>/>
+                <motion.img src={imgB} alt="" className="img-back" initial={{right:"11rem"}} whileInView={{right:"24rem"}} transition={transition}></motion.img>
 
                 <motion.div className="calorie" initial={{right:"42rem"}} whileInView={{right:"37rem"}} transition={transition}>
                 <img src={Calories} alt=""  />
