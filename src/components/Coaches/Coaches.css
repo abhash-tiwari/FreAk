@@ -1,0 +1,292 @@
+
+.coaches-container {
+    padding: 2rem;
+    text-align: center;
+    min-height: 100vh;
+  }
+  
+  .coaches-heading {
+    font-size: 3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: flex-start;
+  }
+  .c-heading {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .coaches-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  .left-c {
+    flex: 1;
+    text-align: left;
+    position: relative;
+  }
+  .left-c>:nth-child(2){
+    color: var(--orange);
+    text-transform: capitalize;
+  }
+  .right-c {
+    flex: 1;
+    position: relative;
+    text-align: center;
+  }
+  .cards {
+    margin-top: 2rem;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+  }
+  .btns-c{
+    position: absolute;
+    bottom: 40px;
+    left: 9%;
+    transform: translateX(-50%);
+  }
+  .img-c{
+    width: 15rem;
+    height: 21rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .img-c:hover {
+    transform: scale(1.05);
+  }
+
+  
+hr{
+    position: absolute;
+    width: 10.5rem;
+    border: 2px solid var(--orange);
+    border-radius: 20%;
+}
+
+.c-blur-1{
+    width: 22rem;
+    height: 30rem;
+    left: 0;
+}
+.c-blur-2{
+    width: 10rem;
+    height: 30rem;
+    right: 0;
+}
+
+.arrows {
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.arrow-icon {
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.arrow-icon:hover {
+  transform: scale(1.2);
+  color: #FFA500;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+  .coaches-heading {
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: flex-start;
+  }
+  .c-heading {
+    font-size: 1.5rem;
+  }
+.left-c {
+  flex: 1;
+}
+.right-c{
+  position: relative;
+}
+.img-c {
+  flex: 1;
+  text-align: center;
+  margin-top: 1rem;
+  position: absolute;
+}
+  .coaches-cards {
+    flex-direction: column;
+    gap: 3rem;
+  }
+.btns-c{
+  display: none;
+}
+  .cards {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btns-c {
+    position: static;
+    display: inline;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .img-c {
+    width: 12rem;
+    height: 16rem;
+  }
+
+  .arrows {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .cards {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+   .coaches-heading {
+    font-size: 2rem;
+  }
+
+  .c-heading {
+    font-size: 1.25rem;
+  }
+  .arrows {
+    display: none;
+  }
+  .img-c {
+    width: 10rem;
+    height: 14rem;
+  }
+  .btns-c{
+    display: none;
+  }
+  
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .coaches-heading {
+    font-size: 2.8rem;
+  }
+
+  .c-heading {
+    font-size: 1.8rem;
+  }
+  
+  .cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btns-c{
+    display: none;
+  }
+  .img-c {
+    width: 14rem;
+    height: 19rem;
+  }
+
+  .arrows {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 844px) {
+  .coaches-heading {
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: flex-start;
+  }
+  .c-heading {
+    font-size: 1.5rem;
+  }
+.left-c {
+  flex: 1;
+}
+.right-c{
+  position: relative;
+}
+.img-c {
+  flex: 1;
+  text-align: center;
+  margin-top: 1rem;
+  position: absolute;
+}
+  .coaches-cards {
+    flex-direction: column;
+    gap: 3rem;
+  }
+.bt-c{
+  display: flex;
+  justify-content: flex-end;
+}
+  .cards {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btns-c {
+    position: static;
+    display: inline;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .img-c {
+    width: 12rem;
+    height: 16rem;
+  }
+
+  .arrows {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 540px) and (max-width: 720px) {
+  hr{
+    text-align: center;
+  }
+  .coaches-heading {
+    font-size: 2.4rem;
+  }
+
+  .c-heading {
+    font-size: 1.6rem;
+  }
+
+  .img-c {
+    width: 13rem;
+    height: 18rem;
+  }
+
+  .arrows {
+    display: none;
+  }
+  .btns-c{
+    display: none;
+  }
+}

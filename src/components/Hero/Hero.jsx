@@ -6,12 +6,18 @@ import imgB from '../../assets/hero_image_back.png'
 import Calories from "../../assets/calories.png"
 import {motion} from 'framer-motion'
 import NumberCounter from 'number-counter'
+import { useNavigate } from 'react-router-dom';
 
 
 const Hero = () => {
 
   const transition = {type: "spring", duration: 3}
   const mobile = window.innerWidth<=768 ? true : false;
+
+  const navigate = useNavigate();
+  const handleCoaches = () => {
+    navigate('/coaches')
+  }
   return (
     <div className='hero' id='Hero'>
       <div className="blur hero-blur"></div>
@@ -53,7 +59,7 @@ const Hero = () => {
        {/* hero buttons */}
        
        <div className="hero-buttons">
-        <button className="btn">Explore</button>
+        <button onClick={handleCoaches} className="btn">Explore</button>
         <button className="btn">Learn More</button>
        </div>
 
