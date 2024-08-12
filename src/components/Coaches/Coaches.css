@@ -214,6 +214,40 @@ hr{
   }
 }
 
+
+/* mobile desktop style */
+@media screen and (min-width: 1024px) and (max-width: 1366px) {   
+  .coaches-heading {
+    font-size: 3rem;
+  }
+
+  .c-heading {
+    font-size: 2rem;
+    margin-bottom: 0;
+  }
+  
+  .cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btns-c{
+    display: none;
+  }
+  .img-c {
+    width: 20rem;
+    height: 24rem;
+  }
+ .lp{
+  font-size: 1.5rem;
+  margin-top: 1rem;
+ }
+  .arrows {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 844px) {
   .coaches-heading {
     font-size: 2.5rem;
