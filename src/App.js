@@ -9,6 +9,7 @@ import Programs from './components/Programs/Programs';
 import Reasons from './components/Reasons/Reasons';
 import Testimonials from './components/Testimonials/Testimonials';
 import Coaches from './components/Coaches/Coaches';
+import Learn from './components/Learn/Learn';
 
 function App() {
   return (
@@ -24,10 +25,11 @@ function App() {
               <Plans />
               <Testimonials />
               <Join />
-              <Footer />
+             
             </>
           } />
           <Route path="/coaches" element={<Coaches />} />
+          <Route path="/learnmore" element={<Learn />} />
         </Routes>
       </div>
     </Router>

@@ -18,6 +18,9 @@ const Hero = () => {
   const handleCoaches = () => {
     navigate('/coaches')
   }
+  const handleLm = () => {
+    navigate('/learnmore')
+  }
   return (
     <div className='hero' id='Hero'>
       <div className="blur hero-blur"></div>
@@ -60,7 +63,7 @@ const Hero = () => {
        
        <div className="hero-buttons">
         <button onClick={handleCoaches} className="btn">Explore</button>
-        <button className="btn">Learn More</button>
+        <button onClick={handleLm} className="btn">Learn More</button>
        </div>
 
         
