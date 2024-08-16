@@ -157,3 +157,26 @@
         padding: 2rem;
     }
 }
+@media screen and (min-width:1024px) and (max-width:1366px){
+    .mobile{
+        display: block;
+    }
+    .arrows{
+        display: none;
+    }
+    .mobile>img{
+        width: 1.5rem;
+        cursor: pointer;
+        margin: 1rem;
+        margin-bottom: 0rem;
+        margin-top: 10rem;
+    }
+    .right-t>div {
+        display: none;
+    }
+    .testimonials {
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+    }
+}

@@ -3,6 +3,7 @@ import './Navbar.css';
 import Logo from '../../assets/logo.fit.png';
 import bars from '../../assets/bars.png';
 import {Link} from 'react-scroll'
+import {Link as RouterLink} from 'react-router-dom'
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -26,7 +27,7 @@ const Navbar = () => {
 
   return (
     <div className="nav-container">
-      <img src={Logo} alt="Logo" className="logo" />
+     <RouterLink to='/'> <img src={Logo} alt="Logo" className="logo" style={{maxWidth:'100%'}} /></RouterLink> 
 
       {isMobile ? (
         <div onClick={toggleMenu}>

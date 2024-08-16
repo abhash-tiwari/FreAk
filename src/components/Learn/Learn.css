@@ -27,7 +27,7 @@
 
   .l-container{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     gap: 3rem;
     margin-top: 2rem;
   }
