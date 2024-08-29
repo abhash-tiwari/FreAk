@@ -10,6 +10,7 @@ import Reasons from './components/Reasons/Reasons';
 import Testimonials from './components/Testimonials/Testimonials';
 import Coaches from './components/Coaches/Coaches';
 import Learn from './components/Learn/Learn';
+import BMICalculator from './components/BMI/BMI';
 
 function App() {
   return (
@@ -25,11 +26,12 @@ function App() {
               <Plans />
               <Testimonials />
               <Join />
-             
+              
             </>
           } />
           <Route path="/coaches" element={<Coaches />} />
           <Route path="/learnmore" element={<Learn />} />
+          <Route path="/cal" element={<BMICalculator />} />
         </Routes>
         <Footer />
       </div>

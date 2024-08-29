@@ -1,0 +1,74 @@
+.bmi-container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 1rem;
+}
+.card-b{
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+}
+
+.header-b{
+    font-weight: bold;
+    font-size: 2.5rem;
+    justify-content: center;
+    color: white;
+    text-transform: uppercase;
+    font-style: italic;
+    text-align: center;
+}
+
+.label-b{
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    padding: 12px;
+}
+.label-b input{
+   background-color: gray;
+   border: none;
+   outline: none;
+   color: black;
+   border-radius: 8px;
+   height: 2.8rem;
+   width: 100%;
+   padding-left: 8px;
+}
+.label-b label{
+   font-size: large;
+}
+
+.result-b{
+    display: flex;
+    flex-direction: column;
+}
+.result-b p{
+    text-transform: capitalize;
+}
+
+.b-blur{
+    width: 42rem;
+    height: 30rem;
+    right: 0;
+}
+
+@media (max-width:768px) {
+    .header-b {
+        font-size: 2rem;
+    }
+    
+    .label-b input {
+        height: 2.5rem;
+    }
+    
+    .card-b {
+        padding: 1rem;
+    }
+}

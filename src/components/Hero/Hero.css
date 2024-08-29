@@ -99,6 +99,12 @@
     border: 2px solid orange;
 }
 
+.hero-buttons>:nth-child(3){
+    color: white;
+    background-color: orange;
+    width: 8rem;
+}
+
 
 
 .img-hero>img{

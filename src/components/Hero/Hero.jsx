@@ -21,6 +21,9 @@ const Hero = () => {
   const handleLm = () => {
     navigate('/learnmore')
   }
+  const handleBmi = () => {
+    navigate('/cal')
+  }
   return (
     <div className='hero' id='Hero'>
       <div className="blur hero-blur"></div>
@@ -64,6 +67,7 @@ const Hero = () => {
        <div className="hero-buttons">
         <button onClick={handleCoaches} className="btn">Explore</button>
         <button onClick={handleLm} className="btn">Learn More</button>
+        <button onClick={handleBmi} className="btn">Check Your BMI</button>
        </div>
 
         
@@ -77,11 +81,11 @@ const Hero = () => {
         <div className="right">
 
 
-            <motion.div initial={{right:"-1rem"}} whileInView={{right:'4rem'}} transition={transition} className="heart-rate">
+            <div className="heart-rate">
                 <img src={Heart} alt="" />
                 <span>Heart Rate </span>
-                <span>116 BPM</span>
-            </motion.div>
+                <span><NumberCounter end={116} start={70} delay='4'  />BPM</span>
+            </div>
 
 
 

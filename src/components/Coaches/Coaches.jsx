@@ -18,7 +18,7 @@ const Coaches = () => {
 
   const navigate = useNavigate();
   const handleCoaches = () => {
-    navigate('/coaches')
+    navigate('/cal')
   }
 
 
@@ -85,7 +85,6 @@ const Coaches = () => {
         </div>
     </div>
     <div>
-      <Footer />
       </div>
     </div>
     
