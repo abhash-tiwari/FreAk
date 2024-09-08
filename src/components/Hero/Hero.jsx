@@ -15,8 +15,8 @@ const Hero = () => {
   const mobile = window.innerWidth<=768 ? true : false;
 
   const navigate = useNavigate();
-  const handleCoaches = () => {
-    navigate('/coaches')
+  const handleExplore = () => {
+    navigate('/exercises')
   }
   const handleLm = () => {
     navigate('/learnmore')
@@ -65,7 +65,7 @@ const Hero = () => {
        {/* hero buttons */}
        
        <div className="hero-buttons">
-        <button onClick={handleCoaches} className="btn">Explore</button>
+        <button onClick={handleExplore} className="btn">Explore</button>
         <button onClick={handleLm} className="btn">Learn More</button>
         <button onClick={handleBmi} className="btn">Check Your BMI</button>
        </div>

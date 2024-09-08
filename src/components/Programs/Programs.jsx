@@ -2,8 +2,10 @@ import React from 'react'
 import './Programs.css'
 import {programsData} from "../../data/programsData"
 import RightArrow from "../../assets/rightArrow.png"
+import { useNavigate } from 'react-router-dom'
 
 const Programs = () => {
+  const navigate = useNavigate();
   return (
     <div className='Programs' id='Programs' >
       <div className="programs-header">
@@ -13,7 +15,7 @@ const Programs = () => {
       </div>
       <div className="program-categories">
         {programsData.map((ele) => (
-            <div className='categories' >
+            <div className='categories' onClick={()=> navigate('/coaches')} >
                 {ele.image}
                 <span>{ele.heading}</span>
                 <span>{ele.details}</span>

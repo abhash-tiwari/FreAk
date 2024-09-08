@@ -1,0 +1,149 @@
+.exercises-container {
+    padding: 2rem;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+.title {
+    font-size: 3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.search-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    margin-top: 3rem;
+    margin-bottom: 0.3rem;
+}
+
+.dropdown {
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    min-width: 200px;
+    border: none;
+    outline: none;
+    background-color: gray;
+}
+
+.search-button {
+    padding: 10px 20px;
+    background-color: var(--orange);
+    color: white;
+}
+
+.exercises-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.exercise-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 350px;
+    position: relative;
+}
+
+.exercise-name {
+    font-size: 1.2rem;
+    color: #333;
+    word-wrap: break-word;
+    text-transform: uppercase;
+    position: absolute;
+    top: 0.3rem;
+    left: 5px;
+    right: 5px;
+}
+
+.exercise-content {
+    font-size: 1.2rem;
+    color: #333;
+    text-transform: capitalize;
+    margin: 2px 0;
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+.e {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+}
+
+.exercise-img {
+    width: 200px;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 5px;
+    flex-shrink: 0;
+    position: absolute;
+    top: 105px;
+    left: 36px;
+}
+
+@media (max-width: 768px) {
+    .search-container {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .exercises-list {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+    }
+
+    .exercise-card {
+        min-height: 300px;
+    }
+
+    .exercise-img {
+        width: 160px;
+        top: 90px;
+        left: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .search-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .exercises-list {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .exercise-card {
+        min-height: 250px;
+    }
+
+    .exercise-img {
+        width: 120px;
+        top: 70px;
+        left: calc(50% - 60px);
+    }
+}
