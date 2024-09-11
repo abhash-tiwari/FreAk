@@ -66,10 +66,6 @@ const Learn = () => {
           <li><strong>Balance and Coordination:</strong> Exercises that challenge your balance, such as stability ball workouts or balance board exercises, improve overall stability and coordination, reducing the risk of falls and injuries.</li>
         </ol>
       </div>
-        
-      <footer className="learn-more-footer">
-        <Footer />
-      </footer>
     </div>
   );
 };

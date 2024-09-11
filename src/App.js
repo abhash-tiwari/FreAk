@@ -13,6 +13,7 @@ import Learn from './components/Learn/Learn';
 import BMICalculator from './components/BMI/BMI';
 import ExerciseExplorer from './components/Exercises/Exercises';
 import ScrollToTop from './components/ScrollToTop';
+import ExerciseDemo from './components/ExerciseDemo/ExerciseDemo';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           <Route path="/learnmore" element={<Learn />} />
           <Route path="/cal" element={<BMICalculator />} />
           <Route path="/exercises" element={<ExerciseExplorer />} />
+          <Route path="/exercisedemo" element={<ExerciseDemo />} />
         </Routes>
         <Footer />
       </div>

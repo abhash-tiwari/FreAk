@@ -1,78 +1,146 @@
 import React, { useState, useEffect } from 'react';
-import { fetchData, exerciseOptions } from '../../utils/FetchData';
+import { fetchData, exerciseOptions, youtubeOptions } from '../../utils/FetchData';
+import { useNavigate } from 'react-router-dom';
 import './Exercises.css';
 
 const Exercises = () => {
-  const [exercises, setExercises] = useState([]);
-  const [bodyParts, setBodyParts] = useState([]);
-  const [selectedBodyPart, setSelectedBodyPart] = useState('');
-
-  useEffect(() => {
-    const fetchBodyParts = async () => {
-      const bodyPartList = await fetchData(
-        'https://exercisedb.p.rapidapi.com/exercises/bodyPartList',
-        exerciseOptions
-      );
-      setBodyParts(bodyPartList);
+    const [exercises, setExercises] = useState([]);
+    const [bodyParts, setBodyParts] = useState([]);
+    const [selectedBodyPart, setSelectedBodyPart] = useState('');
+    const [youtubeVideos, setYoutubeVideos] = useState([]);
+    const [loadingVideos, setLoadingVideos] = useState(true);
+  
+    const navigate = useNavigate();
+  
+    // Fetch body parts and random exercises on component mount
+    useEffect(() => {
+      const fetchInitialData = async () => {
+        // Fetch body parts
+        const bodyPartList = await fetchData(
+          'https://exercisedb.p.rapidapi.com/exercises/bodyPartList',
+          exerciseOptions
+        );
+        setBodyParts(bodyPartList);
+  
+        // Fetch random exercises
+        const allExercises = await fetchData(
+          'https://exercisedb.p.rapidapi.com/exercises',
+          exerciseOptions
+        );
+        const randomExercises = allExercises.sort(() => 0.5 - Math.random()).slice(0, 5);
+        setExercises(randomExercises);
+  
+        // Fetch random fitness-related YouTube videos
+        fetchYoutubeVideos('fitness workouts');
+      };
+  
+      fetchInitialData();
+    }, []);
+  
+    // Fetch YouTube videos based on search query (random or specific body part)
+    const fetchYoutubeVideos = async (query) => {
+      setLoadingVideos(true);
+      const youtubeUrl = `https://youtube-search-and-download.p.rapidapi.com/search?query=${query}&type=v`;
+      const youtubeData = await fetchData(youtubeUrl, youtubeOptions);
+      setYoutubeVideos(youtubeData.contents.slice(0, 5)); // Limit to 5 videos
+      setLoadingVideos(false);
     };
-
-    fetchBodyParts();
-  }, []);
-
-  const handleSearch = async () => {
-    if (selectedBodyPart) {
+  
+    // Fetch exercises for the selected body part and related YouTube videos
+    const handleBodyPartClick = async (bodyPart) => {
+      setSelectedBodyPart(bodyPart);
       const exercisesData = await fetchData(
-        `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${selectedBodyPart}`,
+        `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`,
         exerciseOptions
       );
       setExercises(exercisesData);
+  
+      // Fetch body-part-related YouTube videos
+      fetchYoutubeVideos(`${bodyPart} workout`);
+    };
+  
+    // Handle click on exercise card to navigate to demo
+    const handleExerciseClick = (exercise) => {
+      navigate(`/exercisedemo`, { state: { exercise } }); // Passing exercise data to the new route
+    };
+  
+
+  // Handle dropdown change for small screens
+  const handleDropdownChange = (event) => {
+    const bodyPart = event.target.value;
+    if (bodyPart) {
+      handleBodyPartClick(bodyPart);
     }
   };
 
   return (
     <div className="exercises-container">
-        <hr />
+      <hr />
       <h1 className="title">Search Exercises by Body Part</h1>
-<hr />
-      <div className="search-container">
-        <select
-          className="dropdown"
-          value={selectedBodyPart}
-          onChange={(e) => setSelectedBodyPart(e.target.value)}
-        >
+      <hr />
+
+      {/* Dropdown for smaller screens */}
+      <div className="search-container-dropdown">
+        <select className="dropdown" onChange={handleDropdownChange} value={selectedBodyPart}>
           <option value="">Select Body Part</option>
           {bodyParts.map((bodyPart) => (
             <option key={bodyPart} value={bodyPart}>
-              {bodyPart}
+              {bodyPart.toUpperCase()}
             </option>
           ))}
         </select>
-        <button className="search-button btn" onClick={handleSearch}>
-          Search
-        </button>
+      </div>
+
+      {/* Buttons for larger screens */}
+      <div className="search-container">
+        {bodyParts.map((bodyPart) => (
+          <button
+            key={bodyPart}
+            className={`btns ${selectedBodyPart === bodyPart ? 'active' : ''}`}
+            onClick={() => handleBodyPartClick(bodyPart)}
+          >
+            {bodyPart.toUpperCase()}
+          </button>
+        ))}
       </div>
 
       <div className="exercises-list">
         {exercises.length > 0 ? (
           exercises.map((exercise) => (
-            <div key={exercise.id} className="exercise-card">
+            <div key={exercise.id} className="exercise-card" onClick={() => handleExerciseClick(exercise)}>
               <h2 className="exercise-name">{exercise.name}</h2>
-              
               <img className="exercise-img" src={exercise.gifUrl} alt={exercise.name} />
               <div className='e'>
-              <p className="exercise-content">Body Part: {exercise.bodyPart}</p>
-              <p className="exercise-content">Equipment: {exercise.equipment}</p>
-              <p className="exercise-content">Target: {exercise.target}</p>
+                <p className="exercise-content">Body Part: {exercise.bodyPart}</p>
+                <p className="exercise-content">Equipment: {exercise.equipment}</p>
+                <p className="exercise-content">Target: {exercise.target}</p>
               </div>
-              
             </div>
           ))
         ) : (
-          <p>Search For Any Body Part You Want To Train</p>
+          <p>Loading...</p>
         )}
       </div>
-    </div>
-  );
+
+{/* YouTube Videos Section */}
+<hr />
+<h2>Related YouTube Videos</h2>
+{loadingVideos ? (
+  <p>Loading YouTube videos...</p>
+) : (
+  <div className="youtube-videos">
+    {youtubeVideos.map((video, index) => (
+      <div key={index} className="youtube-video-card">
+        <a href={`https://www.youtube.com/watch?v=${video.video.videoId}`} target="_blank" rel="noopener noreferrer">
+          <img src={video.video.thumbnails[0].url} alt={video.video.title} className="youtube-video-thumbnail" />
+          <p>{video.video.title}</p>
+        </a>
+      </div>
+    ))}
+  </div>
+)}
+</div>
+);
 };
 
 export default Exercises;

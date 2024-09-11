@@ -1,0 +1,115 @@
+.demo {
+    padding: 2rem;
+  }
+  
+.demo-header h1{
+    font-size: 3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.exercise-demo-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  padding: 1rem;
+  gap: 2rem;
+}
+
+.exercise-demo-left{
+    flex: 1;
+    width: 35rem;
+    max-width: 100%;
+    height: 30rem;
+    max-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.exercise-img-demo{
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    object-fit: contain;
+}
+.exercise-demo-right{
+    flex: 1;
+    width: 35rem;
+    max-width: 100%;
+    height: 30rem;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.exercise-demo-right p {
+    font-size: 1.2rem;
+    line-height: 0.5;
+    text-transform: capitalize;
+  }
+  
+  .exercise-demo-right strong {
+    font-size: 1.3rem;
+  }
+  
+  .exercise-demo-right h2 {
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    line-height: 1.6;
+  }
+
+  .youtube-video-section {
+    margin-top: 2rem;
+  }
+  
+  .video-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  
+  .video-item {
+    width: 15rem;
+    text-align: center;
+  }
+  
+  .video-item img {
+    width: 100%;
+    border-radius: 0.5rem;
+  }
+  
+  .video-item p {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .video-list a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .video-list a:hover {
+    color: var(--orange);
+  }
+
+@media (max-width: 768px) {
+    .exercise-demo-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .exercise-demo-left, .exercise-demo-right {
+      max-width: 100%;
+      width: 100%;
+    }
+  
+    .exercise-name-d {
+      font-size: 2rem;
+    }
+  }

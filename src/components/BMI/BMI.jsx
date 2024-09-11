@@ -37,7 +37,6 @@ const BMICalculator = () => {
     animate={{ opacity: 1}}
     exit={{ opacity: 0 }}
     transition={{ duration: 2, ease: 'easeInOut' }}>
-      {/* <div className="blur hero-blur"></div> */}
       <div className="blur b-blur"></div>
         <div className="card-b">
         <h2 className='header-b stroke-text'>Check Your BMI</h2>

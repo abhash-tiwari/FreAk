@@ -15,12 +15,34 @@
 
 .search-container {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 10px;
-    margin-top: 3rem;
-    margin-bottom: 0.3rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 3rem;
+  margin-bottom: 0.2rem;
 }
+.btns{
+  width: 150px;
+  height: 50px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: #f5f5f5;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 7rem;
+}
+.btns:hover {
+    background-color: #ddd;
+  }
+.btns.active {
+    background-color: var(--orange);
+    color: white;
+  }
 
 .dropdown {
     padding: 10px;
@@ -96,6 +118,73 @@
     left: 36px;
 }
 
+.youtube-videos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .youtube-video-card {
+    width: 250px;
+    text-align: center;
+  }
+  
+  .youtube-video-thumbnail {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .youtube-video-card a {
+    text-decoration: none;
+    color: inherit;
+  }
+  .youtube-video-card a:hover {
+    text-decoration: none;
+    color: var(--orange);
+  }
+
+  .exercise-img {
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .exercise-card {
+    transition: transform 0.3s ease-in-out;
+  }
+
+  @media (max-width: 768px) {
+    .search-container{
+      display: none;
+    }
+  
+    .search-container-dropdown {
+      display: block;
+      margin: 20px 0;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .search-container{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  
+    .search-container-dropdown {
+      display: none;
+    }
+  }
+  
+  .dropdown {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-width: 300px;
+    margin-top: 2rem;
+  }
 @media (max-width: 768px) {
     .search-container {
         flex-direction: column;
