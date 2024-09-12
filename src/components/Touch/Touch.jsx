@@ -41,7 +41,9 @@ const GetInTouch = () => {
   };
 
   return (
-    <div className="contact-container">
+    <div style={{"minHeight":"100vh"}}>
+<div className="contact-container">
+      <div>
       <h2 className="contact-heading">Get in Touch</h2>
       {!isSubmitted ? (
         <form onSubmit={handleSubmit} className="contact-form">
@@ -85,7 +87,11 @@ const GetInTouch = () => {
       ) : (
         <p className="success-message">Thank you for your message! We will get back to you soon.</p>
       )}
+      </div>
+      
     </div>
+    </div>
+    
   );
 };
 

@@ -1,4 +1,4 @@
-/* Container styles */
+
 .contact-container {
     max-width: 600px;
     margin: 0 auto;
@@ -6,22 +6,18 @@
     background-color: #f4f4f4;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
   }
   
-  /* Form heading */
   .contact-heading {
     text-align: center;
     color: #333;
     margin-bottom: 20px;
   }
   
-  /* Form group styles */
   .form-group {
     margin-bottom: 15px;
   }
   
-  /* Form field label */
   .form-label {
     font-size: 16px;
     color: #333;
@@ -29,7 +25,6 @@
     display: block;
   }
   
-  /* Input fields and textarea */
   .form-input,
   .form-textarea {
     width: 100%;
@@ -40,13 +35,11 @@
     box-sizing: border-box;
   }
   
-  /* Textarea specific styles */
   .form-textarea {
     height: 100px;
     resize: vertical;
   }
   
-  /* Button styles */
   .submit-button {
     display: block;
     width: 100%;
@@ -60,12 +53,10 @@
     transition: background-color 0.3s ease;
   }
   
-  /* Button hover effect */
   .submit-button:hover {
     background-color: #45a049;
   }
   
-  /* Success message */
   .success-message {
     text-align: center;
     font-size: 18px;
