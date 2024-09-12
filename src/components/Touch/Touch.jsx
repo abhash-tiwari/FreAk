@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
+import './Touch.css';
 
 const GetInTouch = () => {
   const [formData, setFormData] = useState({
@@ -18,10 +19,10 @@ const GetInTouch = () => {
     e.preventDefault();
 
     emailjs.sendForm(
-      'service_1ca8g0m',  // EmailJS Service ID
-      'template_cvo8y6i',  // EmailJS Template ID
+      'service_1ca8g0m',
+      'template_cvo8y6i',
       e.target,
-      'uN3lMUILysdLVn5BA'       // EmailJS User ID (or public key if using the new EmailJS SDK)
+      'uN3lMUILysdLVn5BA'
     ).then(
       (result) => {
         console.log('Success:', result.text);
@@ -40,43 +41,49 @@ const GetInTouch = () => {
   };
 
   return (
-    <div>
-      <h2>Get in Touch</h2>
+    <div className="contact-container">
+      <h2 className="contact-heading">Get in Touch</h2>
       {!isSubmitted ? (
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label>Name</label>
+        <form onSubmit={handleSubmit} className="contact-form">
+          <div className="form-group">
+            <label htmlFor="name" className="form-label">Name</label>
             <input
               type="text"
               name="name"
+              id="name"
               value={formData.name}
               onChange={handleChange}
+              className="form-input"
               required
             />
           </div>
-          <div>
-            <label>Email</label>
+          <div className="form-group">
+            <label htmlFor="email" className="form-label">Email</label>
             <input
               type="email"
               name="email"
+              id="email"
               value={formData.email}
               onChange={handleChange}
+              className="form-input"
               required
             />
           </div>
-          <div>
-            <label>Message</label>
+          <div className="form-group">
+            <label htmlFor="message" className="form-label">Message</label>
             <textarea
               name="message"
+              id="message"
               value={formData.message}
               onChange={handleChange}
+              className="form-textarea"
               required
             ></textarea>
           </div>
-          <button type="submit">Send Message</button>
+          <button type="submit" className="submit-button">Send Message</button>
         </form>
       ) : (
-        <p>Thank you for your message! We will get back to you soon.</p>
+        <p className="success-message">Thank you for your message! We will get back to you soon.</p>
       )}
     </div>
   );

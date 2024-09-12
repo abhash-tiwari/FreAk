@@ -19,7 +19,7 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  margin-top: 3rem;
+  margin-top: 1rem;
   margin-bottom: 0.2rem;
 }
 .btns{
@@ -152,6 +152,36 @@
   .exercise-card {
     transition: transform 0.3s ease-in-out;
   }
+  
+  .search-input-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .search-input-container > div{
+    display: flex;
+    justify-content: space-between;
+    gap: 6rem;
+    background-color: gray;
+    padding: 0.5rem 2rem;
+    border-radius: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 0;
+    width: 406px;
+  }
+
+  .search-input-container> div > input{
+    background-color: transparent;
+   border: none;
+   outline: none;
+   color: var(--lightgray);
+  }
+  .search-input-container>div>input:hover{
+    cursor: pointer;
+  }
+  ::placeholder{
+    color: var(--lightgray);
+}
 
   @media (max-width: 768px) {
     .search-container{
@@ -161,6 +191,9 @@
     .search-container-dropdown {
       display: block;
       margin: 20px 0;
+    }
+    .search-input-container{
+        display: none;
     }
   }
   

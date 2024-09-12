@@ -65,7 +65,7 @@ const Hero = () => {
        {/* hero buttons */}
        
        <div className="hero-buttons">
-        <button onClick={handleExplore} className="btn">Explore</button>
+        <button onClick={handleExplore} className="btn">Explore Exercises</button>
         <button onClick={handleLm} className="btn">Learn More</button>
         <button onClick={handleBmi} className="btn">Check Your BMI</button>
        </div>

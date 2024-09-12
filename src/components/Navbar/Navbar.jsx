@@ -59,6 +59,8 @@ const Navbar = () => {
           <li><RouterLink to='/' style={linkStyle}>Home</RouterLink></li>
           <li><RouterLink to='/coaches' style={linkStyle}>Coaches</RouterLink></li>
           <li><RouterLink to='/cal' style={linkStyle}>BMI</RouterLink></li>
+          <li><RouterLink to='/exercises' style={linkStyle}>Exercises</RouterLink></li>
+          <li><RouterLink to='/learnmore' style={linkStyle}>Learn More</RouterLink></li>
         </ul>
       );
     }
