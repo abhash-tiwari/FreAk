@@ -1,47 +1,103 @@
+import React, { Suspense, lazy, useLayoutEffect, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Footer from './components/Footer/Footer';
-import Hero from './components/Hero/Hero';
-import Join from './components/Join/Join';
-import Navbar from './components/Navbar/Navbar';
-import Plans from './components/Plans/Plans';
-import Programs from './components/Programs/Programs';
-import Reasons from './components/Reasons/Reasons';
-import Testimonials from './components/Testimonials/Testimonials';
-import Coaches from './components/Coaches/Coaches';
-import Learn from './components/Learn/Learn';
-import BMICalculator from './components/BMI/BMI';
-import ExerciseExplorer from './components/Exercises/Exercises';
-import ScrollToTop from './components/ScrollToTop';
-import ExerciseDemo from './components/ExerciseDemo/ExerciseDemo';
-import GetInTouch from './components/Touch/Touch';
+import AnimatedWrapper from './components/AnimatedWrapper/AnimatedWrapper';
 
-function App() {
+// Lazy load components
+const Navbar = lazy(() => import('./components/Navbar/Navbar'));
+const Hero = lazy(() => import('./components/Hero/Hero'));
+const Join = lazy(() => import('./components/Join/Join'));
+const Plans = lazy(() => import('./components/Plans/Plans'));
+const Programs = lazy(() => import('./components/Programs/Programs'));
+const Reasons = lazy(() => import('./components/Reasons/Reasons'));
+const Testimonials = lazy(() => import('./components/Testimonials/Testimonials'));
+const Coaches = lazy(() => import('./components/Coaches/Coaches'));
+const Learn = lazy(() => import('./components/Learn/Learn'));
+const BMICalculator = lazy(() => import('./components/BMI/BMI'));
+const ExerciseExplorer = lazy(() => import('./components/Exercises/Exercises'));
+const ExerciseDemo = lazy(() => import('./components/ExerciseDemo/ExerciseDemo'));
+const GetInTouch = lazy(() => import('./components/Touch/Touch'));
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useLayoutEffect(() => {
+    const scrollToTop = () => {
+      window.scrollTo(0, 0);
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    };
+
+    scrollToTop();
+
+    // Attempt to scroll again after a short delay
+    const timeoutId = setTimeout(scrollToTop, 100);
+
+    return () => clearTimeout(timeoutId);
+  }, [pathname]);
+
+  return null;
+}
+
+function AppContent() {
   return (
-    <Router>
+    <>
       <ScrollToTop />
       <div className="App-container">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={
-            <>
-              <Hero />
-              <Programs />
-              <Reasons />
-              <Plans />
-              <Testimonials />
-              <Join />
-            </>
-          } />
-          <Route path="/coaches" element={<Coaches />} />
-          <Route path="/learnmore" element={<Learn />} />
-          <Route path="/cal" element={<BMICalculator />} />
-          <Route path="/exercises" element={<ExerciseExplorer />} />
-          <Route path="/exercisedemo" element={<ExerciseDemo />} />
-          <Route path="/getintouch" element={<GetInTouch />} />
-        </Routes>
-        <Footer />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={
+              <>
+                <AnimatedWrapper><Hero /></AnimatedWrapper>
+                <AnimatedWrapper><Programs /></AnimatedWrapper>
+                <AnimatedWrapper><Reasons /></AnimatedWrapper>
+                <AnimatedWrapper><Plans /></AnimatedWrapper>
+                <AnimatedWrapper><Testimonials /></AnimatedWrapper>
+                <AnimatedWrapper><Join /></AnimatedWrapper>
+              </>
+            } />
+            <Route path="/coaches" element={<AnimatedWrapper><Coaches /></AnimatedWrapper>} />
+            <Route path="/learnmore" element={<AnimatedWrapper><Learn /></AnimatedWrapper>} />
+            <Route path="/cal" element={<AnimatedWrapper><BMICalculator /></AnimatedWrapper>} />
+            <Route path="/exercises" element={<AnimatedWrapper><ExerciseExplorer /></AnimatedWrapper>} />
+            <Route path="/exercisedemo" element={<AnimatedWrapper><ExerciseDemo /></AnimatedWrapper>} />
+            <Route path="/getintouch" element={<AnimatedWrapper><GetInTouch /></AnimatedWrapper>} />
+          </Routes>
+          <Footer />
+        </Suspense>
       </div>
+    </>
+  );
+}
+
+function App() {
+  useEffect(() => {
+    const scrollToTop = () => {
+      window.scrollTo(0, 0);
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    };
+
+    // Scroll on initial render
+    scrollToTop();
+
+    // Scroll on page load/reload
+    window.addEventListener('load', scrollToTop);
+
+    // Attempt to scroll again after a short delay
+    const timeoutId = setTimeout(scrollToTop, 10);
+
+    return () => {
+      window.removeEventListener('load', scrollToTop);
+      clearTimeout(timeoutId);
+    };
+  }, []);
+
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './BMI.css';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const BMI = () => {
   const [gender, setGender] = useState('male');
@@ -58,6 +59,8 @@ const BMI = () => {
     navigate('/exercises')
   }
 
+  const transition = { type: 'spring', duration: 3 };
+
   return (
     <div className="bcontainer">
       <hr style={{"marginTop":"-1rem"}}/>
@@ -68,7 +71,10 @@ const BMI = () => {
         </p>
       </div>
       <hr style={{"marginTop":"-0.1rem"}}/>
-      <div className="bmi-container">
+      <motion.div className="bmi-container" initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 2, ease: 'easeInOut' }}>
       <div className="bmi-card">
         <div className="bmi-content">
           <div className="bmi-left-column">
@@ -163,7 +169,7 @@ const BMI = () => {
           </div>
         </div>
       </div>
-      </div>
+      </motion.div>
       
     </div>
   );
