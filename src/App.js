@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import './App.css';
 import Footer from './components/Footer/Footer';
 import AnimatedWrapper from './components/AnimatedWrapper/AnimatedWrapper';
-
+import Navbar from './components/Navbar/Navbar';
 // Lazy load components
-const Navbar = lazy(() => import('./components/Navbar/Navbar'));
+
 const Hero = lazy(() => import('./components/Hero/Hero'));
 const Join = lazy(() => import('./components/Join/Join'));
 const Plans = lazy(() => import('./components/Plans/Plans'));

@@ -1,5 +1,5 @@
 .bcontainer{
-    margin: 2rem;
+    margin: 7rem 0 0 2.5rem;
 }
 .bmi-title{
     font-size: 3rem;
@@ -14,7 +14,7 @@
 }
 .bmi-container {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 6rem auto;
     padding: 20px;
     font-family: Arial, sans-serif;
   }
@@ -95,11 +95,7 @@
     width: 100%;
     margin-top: 10px;
   }
-  .hrstyle{
-    /* style={{"marginTop":"-1rem"}} */
-    margin-top: -1rem;
-  }
-  /* Responsive adjustments */
+ 
   @media (max-width: 480px) {
     .bmi-content {
       flex-direction: column;

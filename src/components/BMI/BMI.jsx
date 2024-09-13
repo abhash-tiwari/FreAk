@@ -58,23 +58,19 @@ const BMI = () => {
   const handleExploreClick = () => {
     navigate('/exercises')
   }
-
   const transition = { type: 'spring', duration: 3 };
 
   return (
-    <div className="bcontainer">
-      <hr style={{"marginTop":"-1rem"}}/>
+       <motion.div className="bmi-container" initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 2, ease: 'easeInOut' }}>
       <div>
         <h1 className="bmi-title">BMI Calculator: Body Mass Index</h1>
         <p className="bmi-description">
           BMI is a measurement of the relationship between two prominent body metrics: your weight and height.
         </p>
       </div>
-      <hr style={{"marginTop":"-0.1rem"}}/>
-      <motion.div className="bmi-container" initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 2, ease: 'easeInOut' }}>
       <div className="bmi-card">
         <div className="bmi-content">
           <div className="bmi-left-column">
@@ -109,12 +105,12 @@ const BMI = () => {
               <p>{idealWeightRange || '-'}</p>
             </div>
             <button 
-  className="bmi-button" 
-  onClick={handleExploreClick}
-  disabled={!bmi} /* Button is disabled unless BMI is calculated */
->
-  Explore Exercises Based on Your BMI
-</button>
+             className="bmi-button" 
+              onClick={handleExploreClick}
+             disabled={!bmi} /* Button is disabled unless BMI is calculated */
+               >
+               Explore Exercises Based on Your BMI
+              </button>
           </div>
           <div className="bmi-right-column">
             <h2>Calculate your BMI</h2>
@@ -169,9 +165,8 @@ const BMI = () => {
           </div>
         </div>
       </div>
+      <div className='blur'></div>
       </motion.div>
-      
-    </div>
   );
 };
 
