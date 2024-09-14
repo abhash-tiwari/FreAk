@@ -1,11 +1,17 @@
 import React from 'react';
 import './Learn.css';
 import coverLm from '../../assets/lm.jpg'
-import Footer from "../Footer/Footer"
+import { motion } from 'framer-motion';
 
 const Learn = () => {
+
+  const transition = { type: 'spring', duration: 3 };
+  
   return (
-    <div className="learn-more">
+    <motion.div className="learn-more" initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 2, ease: 'easeInOut' }}>
       <header className="learn-more-header">
         <hr />
         <br />
@@ -53,8 +59,6 @@ const Learn = () => {
       
         </div>
         
-        
-      
       
 </div>
 <div className="types-section">
@@ -66,7 +70,7 @@ const Learn = () => {
           <li><strong>Balance and Coordination:</strong> Exercises that challenge your balance, such as stability ball workouts or balance board exercises, improve overall stability and coordination, reducing the risk of falls and injuries.</li>
         </ol>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

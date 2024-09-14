@@ -1,10 +1,10 @@
 import React, { Suspense, lazy, useLayoutEffect, useEffect, useState, useCallback } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
+import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import AnimatedWrapper from './components/AnimatedWrapper/AnimatedWrapper';
-import Navbar from './components/Navbar/Navbar';
-import Loader from './components/Loader/Loader'; // Import the custom Loader
+import Loader from './components/Loader/Loader';
 
 // Lazy load components
 const Hero = lazy(() => import('./components/Hero/Hero'));
@@ -59,7 +59,7 @@ function AppContent() {
     <>
       <ScrollToTop />
       <div className="App-container">
-        <Suspense fallback={showLoader ? <Loader /> : null}> {/* Use the custom Loader here */}
+        <Suspense fallback={showLoader ? <Loader /> : null}>
           <Navbar />
           <Routes>
             <Route path="/" element={

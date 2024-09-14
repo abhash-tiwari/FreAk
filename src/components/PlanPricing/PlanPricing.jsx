@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './PlanPricing.css';
 import { plans } from '../../data/planPricingData';
 import emailjs from 'emailjs-com';
+import { motion } from 'framer-motion';
 
 const PlanOption = ({ title, price, duration, features, isSelected, onSelect }) => (
   <div className={`plan-option ${isSelected ? 'selected' : ''}`}>
@@ -52,9 +53,14 @@ const SignupModal = ({ onClose }) => {
       });
   };
 
+  const transition = { type: 'spring', duration: 3 };
+
   return (
     <div className="modal-overlay">
-      <div className="modal-content">
+      <motion.div className="modal-content" initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.4, ease: 'easeInOut' }}>
         <div className="modal-header">
           <h2>Get Started</h2>
           <button onClick={onClose} className='btn'>X</button>
@@ -82,7 +88,7 @@ const SignupModal = ({ onClose }) => {
           </button>
           {message && <p>{message}</p>}
         </form>
-      </div>
+      </motion.div>
     </div>
   );
 };
@@ -92,8 +98,17 @@ const PlanPricing = () => {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <div className="freak-plan-pricing">
+    <div className="pcontainer">
+        <div className='pp-heading'>
+        <hr className='hr-p'/>
       <h1>Select Your Plan</h1>
+      <hr className='hr-p'/>
+        </div>
+      <motion.div className="freak-plan-pricing" initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 2, ease: 'easeInOut' }}>
+       
       <div className="plan-options">
         {plans.map((plan, index) => (
           <PlanOption
@@ -114,7 +129,9 @@ const PlanPricing = () => {
         </button>
       </div>
       {showModal && <SignupModal onClose={() => setShowModal(false)} />}
+    </motion.div>
     </div>
+    
   );
 };
 

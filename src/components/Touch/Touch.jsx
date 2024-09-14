@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 import './Touch.css';
+import { motion } from 'framer-motion';
 
 const GetInTouch = () => {
   const [formData, setFormData] = useState({
@@ -40,9 +41,14 @@ const GetInTouch = () => {
     });
   };
 
+  const transition = { type: 'spring', duration: 3 };
+
   return (
     <div style={{"minHeight":"100vh"}}>
-<div className="contact-container">
+<motion.div className="contact-container" initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 2, ease: 'easeInOut' }}>
       <div>
       <h2 className="contact-heading">Get in Touch</h2>
       {!isSubmitted ? (
@@ -89,7 +95,7 @@ const GetInTouch = () => {
       )}
       </div>
       
-    </div>
+    </motion.div>
     </div>
     
   );
