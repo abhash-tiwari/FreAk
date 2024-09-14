@@ -2,8 +2,8 @@ import React, { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import gymVideoLarge from '../../assets/gym.mp4';
 import gymVideoSmall from '../../assets/gymjao.mp4';
+import { FaStar, FaTimes } from 'react-icons/fa';
 import './CameraCapture.css';
-import { FaStar, FaTimes } from 'react-icons/fa'; // Importing both star and times icons
 
 const CameraCapture = () => {
   const videoRef = useRef(null);
@@ -11,7 +11,7 @@ const CameraCapture = () => {
   const [isCameraOpen, setIsCameraOpen] = useState(false);
   const [videoPlaying, setVideoPlaying] = useState(false);
   const [videoSource, setVideoSource] = useState(gymVideoLarge);
-  const [showMessage, setShowMessage] = useState(false); // State to manage message visibility
+  const [showMessage, setShowMessage] = useState(false);
   const navigate = useNavigate();
 
   const startCamera = async () => {
@@ -62,7 +62,7 @@ const CameraCapture = () => {
 
   return (
     <div className="camera-capture-container">
-      {!videoPlaying && (
+      {!videoPlaying ? (
         <div>
           {!isCameraOpen && (
             <>
@@ -74,44 +74,40 @@ const CameraCapture = () => {
           )}
           <video ref={videoRef} autoPlay className="camera-video" />
           <div className="button-container">
-            {!isCameraOpen && (
+            {!isCameraOpen ? (
               <button onClick={startCamera} className="camera-button">Open Camera</button>
-            )}
-            {isCameraOpen && (
-              <>
-                <button onClick={capturePhoto} className="camera-button">Capture Photo</button>
-              </>
+            ) : (
+              <button onClick={capturePhoto} className="camera-button">Capture Photo</button>
             )}
           </div>
         </div>
-      )}
-      <canvas ref={canvasRef} style={{ display: 'none' }} />
-      {videoPlaying && (
+      ) : (
         <div className="video-fullscreen">
           <video src={videoSource} controls autoPlay loop className="gym-video" />
-          <button onClick={goToHomePage} className="lets-go-button btn">Let's Go</button>
+          <button onClick={goToHomePage} className="lets-go-button">Let's Go</button>
         </div>
       )}
+      <canvas ref={canvasRef} style={{ display: 'none' }} />
       <div className="hidden-message-container">
-        {!showMessage ? (
+        {showMessage ? (
+          <>
+            <FaTimes
+              className="hidden-message-icon close-icon"
+              onClick={toggleMessage}
+              title="Close message"
+            />
+            <div className="hidden-message">
+              Congratulations! You have found a hidden and special component! 
+              <br />
+              PS: Just For Fun
+            </div>
+          </>
+        ) : (
           <FaStar
             className="hidden-message-icon"
             onClick={toggleMessage}
             title="Click me for a surprise!"
           />
-        ) : (
-          <FaTimes
-            className="hidden-message-icon close-icon"
-            onClick={toggleMessage}
-            title="Close message"
-          />
-        )}
-        {showMessage && (
-          <div className="hidden-message">
-            Congratulations! You have found a hidden and special component! 
-            <br />
-            PS: Just For Fun
-          </div>
         )}
       </div>
     </div>
