@@ -234,7 +234,7 @@
         width: 14rem;
     }
     .left{
-        margin-top: 8rem;
+        margin-top: 6rem;
     }
     .ad {
         margin-top: 0;
@@ -327,9 +327,9 @@
         justify-content: center;
     }
     .hero {
-        height: 100vh;
+        height: 60vh;
     }
     .left{
-        margin-top: 11rem;
+        margin-top: 6rem;
     }
 }

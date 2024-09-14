@@ -1,3 +1,4 @@
+/* General container and heading styles */
 .camera-capture-container {
     display: flex;
     flex-direction: column;
@@ -71,6 +72,7 @@
     margin-top: 7rem;
     border-radius: 0.5rem;
   }
+  
   .lets-go-button {
     margin-top: 20px;
     padding: 10px 30px;
@@ -87,7 +89,7 @@
   .lets-go-button:hover {
     background-color: #fb8c00;
   }
-
+  
   .hidden-message-container {
     position: fixed;
     bottom: 20px;
@@ -113,14 +115,23 @@
     border-radius: 5px;
   }
   
-
+  /* Media Queries */
+  
+  /* For tablet sizes */
+  @media (max-width: 1024px) {
+    .gym-video {
+      width: 100vw; /* Full width of the viewport */
+      height: auto;
+      margin-top: 4rem;
+    }
+  }
+  
+  /* For mobile screens */
   @media (max-width: 768px) {
     .gym-video {
       width: 100vw; /* Full width of the viewport */
       height: auto;
-      margin-top: 2rem;
+      margin-top: 4rem;
     }
   }
-
-  
   
