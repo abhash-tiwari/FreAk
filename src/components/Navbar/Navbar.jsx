@@ -4,6 +4,8 @@ import Logo from '../../assets/logo.fit.png';
 import bars from '../../assets/bars.png';
 import { Link } from 'react-scroll';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faDumbbell, faChalkboardTeacher, faCalculator, faDollarSign, faPhone, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -39,28 +41,32 @@ const Navbar = () => {
 
   const linkStyle = {
     textDecoration: "none",
-    color: "white"
+    color: "white",
+    display: "flex",
+    alignItems: "center"
   };
 
   const renderMenuItems = () => {
     if (location.pathname === '/') {
       return (
         <ul className="menu-container">
-          <li><Link to='Hero' span={true} smooth={true} activeClass='active' style={linkStyle}>Home</Link></li>
-          <li><Link to='Programs' span={true} smooth={true} style={linkStyle}>Programs</Link></li>
-          <li><Link to='Why Us' span={true} smooth={true} style={linkStyle}>Why Us</Link></li>
-          <li><Link to='Plans' span={true} smooth={true} style={linkStyle}>Plans</Link></li>
-          <li><Link to='testimonials' span={true} smooth={true} style={linkStyle}>Testimonials</Link></li>
+          <li><Link to='Hero' span={true} smooth={true} activeClass='active' style={linkStyle}><FontAwesomeIcon icon={faHome} style={{ marginRight: '8px' }} />Home</Link></li>
+          <li><Link to='Programs' span={true} smooth={true} style={linkStyle}><FontAwesomeIcon icon={faDumbbell} style={{ marginRight: '8px' }} />Programs</Link></li>
+          <li><Link to='Why Us' span={true} smooth={true} style={linkStyle}><FontAwesomeIcon icon={faInfoCircle} style={{ marginRight: '8px' }} />Why Us</Link></li>
+          <li><Link to='Plans' span={true} smooth={true} style={linkStyle}><FontAwesomeIcon icon={faDollarSign} style={{ marginRight: '8px' }} />Plans</Link></li>
+          <li><Link to='testimonials' span={true} smooth={true} style={linkStyle}><FontAwesomeIcon icon={faChalkboardTeacher} style={{ marginRight: '8px' }} />Testimonials</Link></li>
         </ul>
       );
     } else {
       return (
         <ul className="menu-container">
-          <li><RouterLink to='/' style={linkStyle}>Home</RouterLink></li>
-          <li><RouterLink to='/coaches' style={linkStyle}>Coaches</RouterLink></li>
-          <li><RouterLink to='/cal' style={linkStyle}>BMI</RouterLink></li>
-          <li><RouterLink to='/exercises' style={linkStyle}>Exercises</RouterLink></li>
-          <li><RouterLink to='/learnmore' style={linkStyle}>Learn More</RouterLink></li>
+          <li><RouterLink to='/' style={linkStyle}><FontAwesomeIcon icon={faHome} style={{ marginRight: '8px' }} />Home</RouterLink></li>
+          <li><RouterLink to='/exercises' style={linkStyle}><FontAwesomeIcon icon={faDumbbell} style={{ marginRight: '8px' }} />Exercises</RouterLink></li>
+          <li><RouterLink to='/coaches' style={linkStyle}><FontAwesomeIcon icon={faChalkboardTeacher} style={{ marginRight: '8px' }} />Coaches</RouterLink></li>
+          <li><RouterLink to='/cal' style={linkStyle}><FontAwesomeIcon icon={faCalculator} style={{ marginRight: '8px' }} />BMI</RouterLink></li>
+          <li><RouterLink to='/pricing' style={linkStyle}><FontAwesomeIcon icon={faDollarSign} style={{ marginRight: '8px' }} />Our Plans</RouterLink></li>
+          <li><RouterLink to='/getintouch' style={linkStyle}><FontAwesomeIcon icon={faPhone} style={{ marginRight: '8px' }} />Get In Touch</RouterLink></li>
+          <li><RouterLink to='/learnmore' style={linkStyle}><FontAwesomeIcon icon={faInfoCircle} style={{ marginRight: '8px' }} />Learn More</RouterLink></li>
         </ul>
       );
     }
@@ -82,16 +88,21 @@ const Navbar = () => {
         <ul className="menu-container">
           {location.pathname === '/' ? (
             <>
-              <li><Link to='Hero' span={true} smooth={true} onClick={toggleMenu} activeClass='active' style={linkStyle}>Home</Link></li>
-              <li><Link to='Programs' span={true} smooth={true} onClick={toggleMenu} style={linkStyle}>Programs</Link></li>
-              <li><Link to='Why Us' span={true} smooth={true} onClick={toggleMenu} style={linkStyle}>Why Us</Link></li>
-              <li><Link to='Plans' span={true} smooth={true} onClick={toggleMenu} style={linkStyle}>Plans</Link></li>
-              <li><Link to='testimonials' span={true} smooth={true} onClick={toggleMenu} style={linkStyle}>Testimonials</Link></li>
+              <li><Link to='Hero' span={true} smooth={true} onClick={toggleMenu} activeClass='active' style={linkStyle}><FontAwesomeIcon icon={faHome} style={{ marginRight: '8px' }} />Home</Link></li>
+              <li><Link to='Programs' span={true} smooth={true} onClick={toggleMenu} style={linkStyle}><FontAwesomeIcon icon={faDumbbell} style={{ marginRight: '8px' }} />Programs</Link></li>
+              <li><Link to='Why Us' span={true} smooth={true} onClick={toggleMenu} style={linkStyle}><FontAwesomeIcon icon={faInfoCircle} style={{ marginRight: '8px' }} />Why Us</Link></li>
+              <li><Link to='Plans' span={true} smooth={true} onClick={toggleMenu} style={linkStyle}><FontAwesomeIcon icon={faDollarSign} style={{ marginRight: '8px' }} />Plans</Link></li>
+              <li><Link to='testimonials' span={true} smooth={true} onClick={toggleMenu} style={linkStyle}><FontAwesomeIcon icon={faChalkboardTeacher} style={{ marginRight: '8px' }} />Testimonials</Link></li>
             </>
           ) : (
             <>
-              <li><RouterLink to='/' onClick={toggleMenu} style={linkStyle}>Home</RouterLink></li>
-              <li><RouterLink to='/coaches' onClick={toggleMenu} style={linkStyle}>Coaches</RouterLink></li>
+              <li><RouterLink to='/' onClick={toggleMenu} style={linkStyle}><FontAwesomeIcon icon={faHome} style={{ marginRight: '8px' }} />Home</RouterLink></li>
+              <li><RouterLink to='/exercises' onClick={toggleMenu} style={linkStyle}><FontAwesomeIcon icon={faDumbbell} style={{ marginRight: '8px' }} />Exercises</RouterLink></li>
+              <li><RouterLink to='/coaches' onClick={toggleMenu} style={linkStyle}><FontAwesomeIcon icon={faChalkboardTeacher} style={{ marginRight: '8px' }} />Coaches</RouterLink></li>
+              <li><RouterLink to='/cal' onClick={toggleMenu} style={linkStyle}><FontAwesomeIcon icon={faCalculator} style={{ marginRight: '8px' }} />BMI</RouterLink></li>
+              <li><RouterLink to='/pricing' onClick={toggleMenu} style={linkStyle}><FontAwesomeIcon icon={faDollarSign} style={{ marginRight: '8px' }} />Our Plans</RouterLink></li>
+              <li><RouterLink to='/getintouch' onClick={toggleMenu} style={linkStyle}><FontAwesomeIcon icon={faPhone} style={{ marginRight: '8px' }} />Get In Touch</RouterLink></li>
+              <li><RouterLink to='/learnmore' onClick={toggleMenu} style={linkStyle}><FontAwesomeIcon icon={faInfoCircle} style={{ marginRight: '8px' }} />Learn More</RouterLink></li>
             </>
           )}
         </ul>

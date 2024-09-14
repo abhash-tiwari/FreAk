@@ -1,11 +1,12 @@
-import React, { Suspense, lazy, useLayoutEffect, useEffect } from 'react';
+import React, { Suspense, lazy, useLayoutEffect, useEffect, useState, useCallback } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
 import Footer from './components/Footer/Footer';
 import AnimatedWrapper from './components/AnimatedWrapper/AnimatedWrapper';
 import Navbar from './components/Navbar/Navbar';
-// Lazy load components
+import Loader from './components/Loader/Loader'; // Import the custom Loader
 
+// Lazy load components
 const Hero = lazy(() => import('./components/Hero/Hero'));
 const Join = lazy(() => import('./components/Join/Join'));
 const Plans = lazy(() => import('./components/Plans/Plans'));
@@ -18,8 +19,8 @@ const BMICalculator = lazy(() => import('./components/BMI/BMI'));
 const ExerciseExplorer = lazy(() => import('./components/Exercises/Exercises'));
 const ExerciseDemo = lazy(() => import('./components/ExerciseDemo/ExerciseDemo'));
 const GetInTouch = lazy(() => import('./components/Touch/Touch'));
-const PlanPricing = lazy(()=> import('./components/PlanPricing/PlanPricing'));
-const CameraCapture = lazy(()=> import('./components/CameraCapture/CameraCapture'));
+const PlanPricing = lazy(() => import('./components/PlanPricing/PlanPricing'));
+const CameraCapture = lazy(() => import('./components/CameraCapture/CameraCapture'));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -43,11 +44,22 @@ function ScrollToTop() {
 }
 
 function AppContent() {
+  const [showLoader, setShowLoader] = useState(false);
+
+  const delayedLoader = useCallback(() => {
+    setShowLoader(true);
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(delayedLoader, 100); // Delay the loader appearance
+    return () => clearTimeout(timer);
+  }, [delayedLoader]);
+
   return (
     <>
       <ScrollToTop />
       <div className="App-container">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={showLoader ? <Loader /> : null}> {/* Use the custom Loader here */}
           <Navbar />
           <Routes>
             <Route path="/" element={

@@ -101,9 +101,9 @@ const Exercises = () => {
 
   return (
     <div className="exercises-container">
-      <hr />
+      <hr className='hr-e'/>
       <h1 className="title">Explore Exercises</h1>
-      <hr />
+      <hr className='hr-e'/>
       <div className="blur hero-blur"></div>
       {/* Search Input and Button */}
       <div className="search-input-container">
@@ -163,7 +163,7 @@ const Exercises = () => {
       </div>
 
       {/* YouTube Videos Section */}
-      <hr />
+      <hr className='hr-e'/>
       <h2>Related YouTube Videos</h2>
       {loadingVideos ? (
         <p>Loading YouTube videos...</p>

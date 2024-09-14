@@ -33,11 +33,11 @@ const ExerciseDemo = () => {
   
     return (
       <div className="demo">
-        <hr />
+        <hr className='hr-ed'/>
         <div className="demo-header">
           <h1 className="exercise-name-d">{exercise.name.toUpperCase()}</h1>
         </div>
-        <hr />
+        <hr className='hr-ed'/>
   
         <motion.div
           className="exercise-demo-container"
@@ -61,7 +61,7 @@ const ExerciseDemo = () => {
         </motion.div>
   
         {/* YouTube video section */}
-        <hr />
+        <hr className='hr-ed'/>
         <div className="youtube-video-section">
           {loading ? (
             <p>Fetching YouTube videos...</p>

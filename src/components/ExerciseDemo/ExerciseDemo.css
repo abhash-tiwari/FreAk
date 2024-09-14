@@ -1,5 +1,6 @@
 .demo {
     padding: 2rem;
+    margin-top: 4rem;
   }
   
 .demo-header h1{
@@ -10,7 +11,12 @@
     display: flex;
     justify-content: flex-start;
 }
-
+.hr-ed{
+  position: absolute;
+    width: 10.5rem;
+    border: 2px solid var(--orange);
+    border-radius: 20%;
+}
 .exercise-demo-container{
     display: flex;
     justify-content: space-around;

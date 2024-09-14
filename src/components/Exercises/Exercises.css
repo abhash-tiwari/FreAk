@@ -2,6 +2,7 @@
     padding: 2rem;
     font-family: Arial, sans-serif;
     min-height: 100vh;
+    margin-top: 4rem;
 }
 
 .title {
@@ -11,6 +12,12 @@
     text-transform: uppercase;
     display: flex;
     justify-content: flex-start;
+}
+.hr-e{
+  position: absolute;
+    width: 10.5rem;
+    border: 2px solid var(--orange);
+    border-radius: 20%;
 }
 
 .search-container {

@@ -65,12 +65,14 @@ const BMI = () => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 2, ease: 'easeInOut' }}>
+      <hr className='hr-b'/>
       <div>
         <h1 className="bmi-title">BMI Calculator: Body Mass Index</h1>
         <p className="bmi-description">
           BMI is a measurement of the relationship between two prominent body metrics: your weight and height.
         </p>
       </div>
+      <hr className='hr-b'/>
       <div className="bmi-card">
         <div className="bmi-content">
           <div className="bmi-left-column">
