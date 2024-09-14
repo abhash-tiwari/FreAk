@@ -1,0 +1,126 @@
+.camera-capture-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: transparent;
+    color: white;
+  }
+  
+  .heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .subheading {
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Camera video styles */
+  .camera-video {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+  }
+  
+  /* Button container and buttons */
+  .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .camera-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: var(--orange);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .camera-button:hover {
+    background-color: #fb8c00;
+  }
+  
+  /* Fullscreen video container */
+  .video-fullscreen {
+    width: 100vw;
+    height: 100vh;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  /* Gym video - Default Portrait Style (for larger screens) */
+  .gym-video {
+    width: auto;
+    height: 70vh;
+    max-height: 100vh;
+    margin-top: 7rem;
+    border-radius: 0.5rem;
+  }
+  .lets-go-button {
+    margin-top: 20px;
+    padding: 10px 30px;
+    font-size: 18px;
+    background-color: var(--orange);
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 9rem;
+  }
+  
+  .lets-go-button:hover {
+    background-color: #fb8c00;
+  }
+
+  .hidden-message-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+  
+  .hidden-message-icon {
+    font-size: 24px;
+    cursor: pointer;
+    color: gold;
+  }
+  
+  .hidden-message-icon.close-icon {
+    color: red;
+  }
+  
+  .hidden-message {
+    margin-top: 10px;
+    padding: 10px;
+    background: transparent;
+    color: white;
+    border-radius: 5px;
+  }
+  
+
+  @media (max-width: 768px) {
+    .gym-video {
+      width: 100vw; /* Full width of the viewport */
+      height: auto;
+      margin-top: 2rem;
+    }
+  }
+
+  
+  

@@ -19,6 +19,7 @@ const ExerciseExplorer = lazy(() => import('./components/Exercises/Exercises'));
 const ExerciseDemo = lazy(() => import('./components/ExerciseDemo/ExerciseDemo'));
 const GetInTouch = lazy(() => import('./components/Touch/Touch'));
 const PlanPricing = lazy(()=> import('./components/PlanPricing/PlanPricing'));
+const CameraCapture = lazy(()=> import('./components/CameraCapture/CameraCapture'));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -66,6 +67,7 @@ function AppContent() {
             <Route path="/exercisedemo" element={<AnimatedWrapper><ExerciseDemo /></AnimatedWrapper>} />
             <Route path="/getintouch" element={<AnimatedWrapper><GetInTouch /></AnimatedWrapper>} />
             <Route path="/pricing" element={<AnimatedWrapper><PlanPricing /></AnimatedWrapper>} />
+            <Route path="/camera" element={<AnimatedWrapper><CameraCapture /></AnimatedWrapper>} />
           </Routes>
           <Footer />
         </Suspense>

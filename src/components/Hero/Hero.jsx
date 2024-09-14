@@ -35,7 +35,7 @@ const Hero = () => {
       </div>
       <div className="blur hero-blur"></div>
       <div className="left">
-        <div className='ad'>
+        <div className='ad' onClick={()=>navigate('/camera')}>
           <motion.div 
             initial={{left: mobile ? "165px" : "238px"}} 
             whileInView={{left:"8px"}} 

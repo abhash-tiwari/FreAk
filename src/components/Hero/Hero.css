@@ -4,7 +4,7 @@
     position: relative;
     overflow: hidden;
     height: 100vh;
-    padding-top: 70px;
+    padding-top: 60px;
 }
 
 .video-background {
@@ -51,6 +51,7 @@
     padding: 1rem;
     position: relative;
     z-index: 1;
+    margin-left: 0.5rem;
 }
 
 .ad {
@@ -227,10 +228,13 @@
 @media screen and (max-width: 768px) {
     .hero {
         flex-direction: column;
-        height: auto;
+        height: 100vh;
     }
     .hero-blur {
         width: 14rem;
+    }
+    .left{
+        margin-top: 8rem;
     }
     .ad {
         margin-top: 0;
@@ -323,6 +327,9 @@
         justify-content: center;
     }
     .hero {
-        height: auto;
+        height: 100vh;
+    }
+    .left{
+        margin-top: 11rem;
     }
 }
