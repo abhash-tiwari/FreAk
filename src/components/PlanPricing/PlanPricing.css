@@ -1,0 +1,234 @@
+.freak-plan-pricing {
+    max-width: 1200px;
+    margin: 1rem auto;
+    padding: 2rem;
+    min-height: 100vh;
+  }
+  
+  .freak-plan-pricing h1 {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 30px;
+  }
+  
+  .plan-options {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .plan-option {
+    flex: 1;
+    min-width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    background-color: #fff;
+  }
+  
+  .plan-option.selected {
+    border-color: #007bff;
+    box-shadow: 0 0 10px rgba(255, 119, 14, 0.992);
+    transform: scale(1.05);
+  }
+  
+  .plan-option h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .plan-option .price {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #007bff;
+  }
+  
+  .plan-option .duration {
+    color: #666;
+    margin-bottom: 15px;
+  }
+  
+  .plan-option button {
+    width: 100%;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+  }
+  
+  .plan-option.selected button {
+    background-color: #000;
+    color: #fff;
+  }
+  
+  .plan-option button:hover {
+    background-color: #f8f9fa;
+  }
+  
+  .plan-option.selected button:hover {
+    background-color: #333;
+  }
+  
+  .plan-option ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .plan-option li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .check-icon {
+    color: #28a745;
+    margin-right: 10px;
+  }
+  
+  .selected-plan {
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  .selected-plan h2 {
+    margin-bottom: 20px;
+    color: #ffffff;
+  }
+  
+  .proceed-button {
+    background-color: var(--orange);
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .proceed-button:hover {
+    background-color: #fb8c00;
+  }
+
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 100%;
+    color: #000;
+  }
+
+  .modal-content input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+  }
+  
+  .modal-content input[type="email"]:focus {
+    border-color: #4caf50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .phone-input {
+    display: flex;
+    margin-bottom: 16px;
+  }
+  
+  .phone-input select, .phone-input input {
+    padding: 8px;
+  }
+  
+  .phone-input select {
+    border-radius: 4px 0 0 4px;
+    border-right: 0;
+  }
+  
+  .phone-input input {
+    flex-grow: 1;
+    border-radius: 0 4px 4px 0;
+  }
+  
+  .terms {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .continue-button {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .continue-button:hover {
+    background-color: darkred;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .plan-options {
+      flex-direction: column;
+    }
+  
+    .plan-option {
+      margin-bottom: 20px;
+      max-width: 400px;
+    }
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .plan-options {
+      flex-direction: column;
+    }
+  
+    .plan-option {
+      margin-bottom: 20px;
+      width: 600px;
+      margin: 0 auto;
+    }
+  }

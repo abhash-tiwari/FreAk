@@ -2,8 +2,10 @@ import React from 'react'
 import {plansData} from "../../data/plansData"
 import whiteTick from "../../assets/whiteTick.png"
 import "./Plans.css"
+import { useNavigate } from 'react-router-dom'
 
 const Plans = () => {
+  const navigate = useNavigate()
   return (
     <div className="plans-container" id='Plans'>
         <div className="blur plans-blur-1"></div>
@@ -32,7 +34,7 @@ const Plans = () => {
                 <div>
                     <span>See More Benefits </span>
                 </div>
-                <button className="btn">Join Now</button>
+                <button className="btn" onClick={()=> navigate('/pricing')}>Join Now</button>
             </div>
           ))}
         </div>
