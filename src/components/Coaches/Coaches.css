@@ -1,327 +1,406 @@
-
-.coaches-container {
-    padding: 2rem;
-    text-align: center;
-    min-height: 100vh;
-    margin: 4rem 0 0 1rem;
-  }
-  
-  .coaches-heading {
-    font-size: 3rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    display: flex;
-    justify-content: flex-start;
-  }
-  .c-heading {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    text-transform: uppercase;
-    display: flex;
-    justify-content: flex-start;
-  }
-  
-  .coaches-cards {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 2rem;
-  }
-  .left-c {
-    flex: 1;
-    text-align: left;
-    position: relative;
-  }
-  .left-c>:nth-child(2){
-    color: var(--orange);
-    text-transform: capitalize;
-  }
-  .right-c {
-    flex: 1;
-    position: relative;
-    text-align: center;
-  }
-  .cards {
-    margin-top: 2rem;
-    position: relative;
-    display: flex;
-    justify-content: space-around;
-  }
-  .btns-c{
-    position: absolute;
-    bottom: 40px;
-    left: 9%;
-    transform: translateX(-50%);
-  }
-  .img-c{
-    width: 15rem;
-    height: 21rem;
-    border-radius: 1rem;
-    overflow: hidden;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .img-c:hover {
-    transform: scale(1.05);
-  }
-
-  
-hr{
-    position: absolute;
-    width: 10.5rem;
-    border: 2px solid var(--orange);
-    border-radius: 20%;
+/* General Styles */
+.about-container {
+  background-color: transparent;
+  padding: 2rem;
+  margin-top: 5rem;
 }
 
-.c-blur-1{
-    width: 22rem;
-    height: 30rem;
-    left: 0;
-}
-.c-blur-2{
-    width: 10rem;
-    height: 30rem;
-    right: 0;
-}
-
-.arrows {
+.about-header {
+  background-size: cover;
+  background-position: center;
+  padding: 4rem 2rem;
+  color: #fff;
+  text-align: center;
+  min-height: 56vh;
   display: flex;
-  justify-content: space-between;
-  width: 100px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-header::before {
+  content: "";
   position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
 }
 
-.arrow-icon {
-  font-size: 40px;
+.about-header * {
+  position: relative;
+  z-index: 2;
+}
+
+.about-header > div {
+  text-align: center;
+}
+
+.header-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.header-title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.header-title:hover {
+  transform: scale(1.10);
+}
+
+.header-description {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Team Section */
+.team-section {
+  text-align: center;
+  padding: 3rem 2rem;
+  background-color: transparent;
+}
+
+.team-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.team-title:hover {
+  transform: scale(1.10);
+}
+
+.team-description {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  text-transform: capitalize;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.team-member {
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  height: 350px;
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem;
+  position: relative;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.member-info {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+  width: 100%;
+  border-radius: 0 0 10px 10px;
+}
+
+.member-name {
+  font-size: 1.5rem;
+  margin-bottom: 0.3rem;
+  text-transform: uppercase;
+}
+
+.member-role {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.member-bio {
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+}
+
+/* Journey Section */
+.journey-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 3rem 2rem;
+}
+
+.journey-text {
+  flex: 1;
+  padding: 1rem;
+  max-width: 500px;
+}
+
+.journey-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.journey-stats {
+  font-size: 2rem;
+  margin-bottom: 1rem;
   color: white;
+}
+
+.journey-button {
+  background-color: var(--orange);
+  color: #333;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  transition: transform 0.2s ease, color 0.2s ease;
+  margin-bottom: 1rem;
 }
 
-.arrow-icon:hover {
-  transform: scale(1.2);
-  color: #FFA500;
+.journey-button:hover {
+  background-color: #e6c944;
 }
 
+.journey-description {
+  font-size: 1rem;
+  color: #666;
+}
 
+.journey-image {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  padding: 2rem;
+  color: #fff;
+  margin: 1rem;
+  max-width: 350px;
+  text-align: center;
+  display: flex;
+  align-items: flex-end;
+}
 
+.image-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
 
-@media screen and (max-width: 768px) {
-  .coaches-heading {
-    font-size: 2.5rem;
-    display: flex;
-    justify-content: flex-start;
+.image-description {
+  font-size: 1rem;
+}
+
+/* Community Section */
+.community-title {
+  font-size: 2.5rem;
+  transition: transform 0.3s ease;
+}
+
+.community-title:hover {
+  transform: scale(1.10);
+}
+
+.community-section {
+  text-align: center;
+}
+
+.community-gallery {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.gallery-item {
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.gallery-image {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 0 10px;
+}
+
+.gallery-title {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+.gallery-description {
+  font-size: 1rem;
+  color: #666;
+}
+
+.slick-prev,
+.slick-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.slick-prev {
+  left: 10px;
+}
+
+.slick-next {
+  right: 10px;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 24px;
+}
+
+/* Media Queries */
+
+/* Tablets and Smaller Devices */
+@media (max-width: 1024px) {
+  .about-header {
+    padding: 3rem 1.5rem;
+    min-height: 40vh;
   }
-  .c-heading {
+
+  .header-title {
+    font-size: 2.5rem;
+  }
+
+  .header-description {
+    font-size: 1rem;
+  }
+
+  .team-section {
+    padding: 2rem 1rem;
+  }
+
+  .team-title {
+    font-size: 2rem;
+  }
+
+  .team-description {
+    font-size: 1rem;
+  }
+
+  .team-member {
+    height: 300px;
+  }
+
+  .journey-text {
+    max-width: 100%;
+  }
+
+  .journey-title {
+    font-size: 2rem;
+  }
+
+  .journey-stats {
     font-size: 1.5rem;
   }
-.left-c {
-  flex: 1;
-}
-.right-c{
-  position: relative;
-}
-.img-c {
-  flex: 1;
-  text-align: center;
-  margin-top: 1rem;
-  position: absolute;
-}
-  .coaches-cards {
-    flex-direction: column;
-    gap: 3rem;
-  }
-.btns-c{
-  display: none;
-}
-  .cards {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+
+  .journey-button {
+    padding: 0.6rem 1.2rem;
   }
 
-  .btns-c {
-    position: static;
-    display: inline;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+  .journey-description {
+    font-size: 0.9rem;
   }
 
-  .img-c {
-    width: 12rem;
-    height: 16rem;
+  .journey-image {
+    max-width: 300px;
   }
 
-  .arrows {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .cards {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-   .coaches-heading {
+  .community-title {
     font-size: 2rem;
   }
 
-  .c-heading {
-    font-size: 1.25rem;
+  .gallery-item {
+    padding: 0 5px;
   }
-  .arrows {
-    display: none;
+
+  .gallery-image {
+    max-height: 250px;
+    margin: 0;
   }
-  .img-c {
-    width: 10rem;
-    height: 14rem;
-  }
-  .btns-c{
-    display: none;
-  }
-  
 }
 
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-  .coaches-heading {
-    font-size: 2.8rem;
+/* Mobile Devices */
+@media (max-width: 768px) {
+  .about-header {
+    padding: 2rem 1rem;
+    min-height: 30vh;
   }
 
-  .c-heading {
+  .header-title {
+    font-size: 2rem;
+  }
+
+  .header-description {
+    font-size: 0.9rem;
+  }
+
+  .team-title {
     font-size: 1.8rem;
   }
-  
-  .cards {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+  .team-description {
+    font-size: 0.9rem;
   }
 
-  .btns-c{
-    display: none;
-  }
-  .img-c {
-    width: 14rem;
-    height: 19rem;
+  .team-member {
+    height: 250px;
   }
 
-  .arrows {
-    display: none;
-  }
-}
-
-
-/* mobile desktop style */
-@media screen and (min-width: 1024px) and (max-width: 1366px) {   
-  .coaches-heading {
-    font-size: 3rem;
+  .journey-text {
+    max-width: 100%;
+    padding: 1rem 0;
   }
 
-  .c-heading {
-    font-size: 2rem;
-    margin-bottom: 0;
-  }
-  
-  .cards {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .journey-title {
+    font-size: 1.8rem;
   }
 
-  .btns-c{
-    display: none;
-  }
-  .img-c {
-    width: 20rem;
-    height: 24rem;
-  }
- .lp{
-  font-size: 1.5rem;
-  margin-top: 1rem;
- }
-  .arrows {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 844px) {
-  .coaches-heading {
-    font-size: 2.5rem;
-    display: flex;
-    justify-content: flex-start;
-  }
-  .c-heading {
-    font-size: 1.5rem;
-  }
-.left-c {
-  flex: 1;
-}
-.right-c{
-  position: relative;
-}
-.img-c {
-  flex: 1;
-  text-align: center;
-  margin-top: 1rem;
-  position: absolute;
-}
-  .coaches-cards {
-    flex-direction: column;
-    gap: 3rem;
-  }
-.bt-c{
-  display: flex;
-  justify-content: flex-end;
-}
-  .cards {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  .journey-stats {
+    font-size: 1.2rem;
   }
 
-  .btns-c {
-    position: static;
-    display: inline;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+  .journey-button {
+    padding: 0.5rem 1rem;
   }
 
-  .img-c {
-    width: 12rem;
-    height: 16rem;
+  .journey-description {
+    font-size: 0.8rem;
   }
 
-  .arrows {
-    display: none;
-  }
-}
-
-@media screen and (min-width: 540px) and (max-width: 720px) {
-  hr{
-    text-align: center;
-  }
-  .coaches-heading {
-    font-size: 2.4rem;
+  .journey-image {
+    max-width: 280px;
   }
 
-  .c-heading {
-    font-size: 1.6rem;
+  .community-title {
+    font-size: 1.8rem;
   }
 
-  .img-c {
-    width: 13rem;
-    height: 18rem;
+  .gallery-item {
+    padding: 0 5px;
+    margin: 0;
   }
 
-  .arrows {
-    display: none;
-  }
-  .btns-c{
-    display: none;
+  .gallery-image {
+    max-height: 200px;
   }
 }
