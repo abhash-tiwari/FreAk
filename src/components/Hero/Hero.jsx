@@ -18,7 +18,7 @@ const Hero = () => {
     navigate('/exercises');
   }
   const handleLm = () => {
-    navigate('/getintouch');
+    navigate('/coaches');
   }
   const handleBmi = () => {
     navigate('/cal');
@@ -71,8 +71,8 @@ const Hero = () => {
           </div>
         </div>
         <div className="hero-buttons">
+          <button onClick={handleLm} className="btn">About</button>
           <button onClick={handleExplore} className="btn">Explore Exercises</button>
-          <button onClick={handleLm} className="btn">Get In Touch</button>
           <button onClick={handleBmi} className="btn">Check Your BMI</button>
         </div>
       </div>

@@ -61,8 +61,8 @@ const Navbar = () => {
       return (
         <ul className="menu-container">
           <li><RouterLink to='/' style={linkStyle}><FontAwesomeIcon style={{ marginRight: '8px' }} />Home</RouterLink></li>
+          <li><RouterLink to='/coaches' style={linkStyle}><FontAwesomeIcon  style={{ marginRight: '8px' }} />About</RouterLink></li>
           <li><RouterLink to='/exercises' style={linkStyle}><FontAwesomeIcon  style={{ marginRight: '8px' }} />Exercises</RouterLink></li>
-          <li><RouterLink to='/coaches' style={linkStyle}><FontAwesomeIcon  style={{ marginRight: '8px' }} />Coaches</RouterLink></li>
           <li><RouterLink to='/cal' style={linkStyle}><FontAwesomeIcon  style={{ marginRight: '8px' }} />BMI</RouterLink></li>
           <li><RouterLink to='/pricing' style={linkStyle}><FontAwesomeIcon  style={{ marginRight: '8px' }} />Our Plans</RouterLink></li>
           <li><RouterLink to='/getintouch' style={linkStyle}><FontAwesomeIcon  style={{ marginRight: '8px' }} />Get In Touch</RouterLink></li>
@@ -97,8 +97,8 @@ const Navbar = () => {
           ) : (
             <>
               <li><RouterLink to='/' onClick={toggleMenu} style={linkStyle}><FontAwesomeIcon icon={faHome} style={{ marginRight: '8px' }} />Home</RouterLink></li>
+              <li><RouterLink to='/coaches' onClick={toggleMenu} style={linkStyle}><FontAwesomeIcon icon={faChalkboardTeacher} style={{ marginRight: '8px' }} />About</RouterLink></li>
               <li><RouterLink to='/exercises' onClick={toggleMenu} style={linkStyle}><FontAwesomeIcon icon={faDumbbell} style={{ marginRight: '8px' }} />Exercises</RouterLink></li>
-              <li><RouterLink to='/coaches' onClick={toggleMenu} style={linkStyle}><FontAwesomeIcon icon={faChalkboardTeacher} style={{ marginRight: '8px' }} />Coaches</RouterLink></li>
               <li><RouterLink to='/cal' onClick={toggleMenu} style={linkStyle}><FontAwesomeIcon icon={faCalculator} style={{ marginRight: '8px' }} />BMI</RouterLink></li>
               <li><RouterLink to='/pricing' onClick={toggleMenu} style={linkStyle}><FontAwesomeIcon icon={faDollarSign} style={{ marginRight: '8px' }} />Our Plans</RouterLink></li>
               <li><RouterLink to='/getintouch' onClick={toggleMenu} style={linkStyle}><FontAwesomeIcon icon={faPhone} style={{ marginRight: '8px' }} />Get In Touch</RouterLink></li>

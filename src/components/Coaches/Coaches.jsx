@@ -53,7 +53,10 @@ const Coaches = () => {
   return (
     <div>
       <div className="about-container">
-        <div
+        <motion.div initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 1, ease: 'easeInOut' }}
           className="about-header"
           style={{ backgroundImage: `url(${bgImage})` }}
         >
@@ -65,7 +68,7 @@ const Coaches = () => {
           </p>
           </div>
           
-        </div>
+        </motion.div>
 
         <div className="team-section">
           <div>
@@ -109,7 +112,7 @@ const Coaches = () => {
               <p className="stats-number">50+</p>
               <p className="stats-label">Expert Trainers</p>
             </div>
-            <button className="journey-button" onClick={handleCoaches}>Start Your Journey</button>
+            <button className="journey-button btn" onClick={handleCoaches}>Start Your Journey</button>
             <p className="journey-description">
               Since our inception, Freak has been dedicated to helping individuals achieve their fitness goals through exceptional services and facilities.
             </p>

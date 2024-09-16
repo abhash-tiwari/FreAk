@@ -15,7 +15,7 @@ const Programs = () => {
       </div>
       <div className="program-categories">
         {programsData.map((ele) => (
-            <div className='categories' onClick={()=> navigate('/coaches')} >
+            <div className='categories' onClick={()=> navigate('/getintouch')} >
                 {ele.image}
                 <span>{ele.heading}</span>
                 <span>{ele.details}</span>
