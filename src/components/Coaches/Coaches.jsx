@@ -1,12 +1,11 @@
 import React from 'react';
 import Slider from 'react-slick';
-import './Coaches.css'; // Make sure to import your existing styles
+import './Coaches.css';
 import 'slick-carousel/slick/slick.css'; 
 import 'slick-carousel/slick/slick-theme.css'; 
 import { motion } from 'framer-motion';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import bgImage from "../../assets/img1.jpg"; // Background image
+import bgImage from "../../assets/img1.jpg";
 import Trainer from "../../assets/img2.jpg";
 import Trainer2 from "../../assets/img3.jpg";
 import Trainer3 from "../../assets/img5.jpg";

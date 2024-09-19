@@ -1,12 +1,7 @@
 import React from 'react'
 import './Reasons.css'
-// import img1 from '../../assets/image1.png'
 import img1 from '../../assets/selfie.jpg'
-// import img2 from '../../assets/image2.png'
 import img2 from '../../assets/selfie1.jpg'
-// import img3 from '../../assets/image3.png'
-// import img4 from '../../assets/image4.png'
-// import img2 from '../../assets/image2.png'
 import img3 from '../../assets/wdumbell.jpg'
 import tick from '../../assets/tick.png'
 import p from '../../assets/nb.png'
@@ -20,7 +15,6 @@ const Reasons = () => {
         <img src={img1} alt="" />
         <img src={img2} alt="" />
         <img src={img3} alt="" />
-        {/* <img src={img4} alt="" /> */}
       </div>
       <div className="right-r">
         <span>Some Reasons</span>

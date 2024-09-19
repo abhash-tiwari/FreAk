@@ -8,7 +8,7 @@ export const testimonialsData = [
     review:
       "I made the right choice by choosing the Freak Fitness and by choosing the right plan and program I already achieved my ideal body!",
     name: 'VINAY PANDEY',
-    status : 'BUSINESS MAN'
+    status : 'FARMER'
   },
   {
     image: image2,

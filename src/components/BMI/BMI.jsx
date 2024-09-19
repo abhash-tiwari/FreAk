@@ -73,6 +73,7 @@ const BMI = () => {
         </p>
       </div>
       <hr className='hr-b'/>
+      <div className='bmi-extra'>
       <div className="bmi-card">
         <div className="bmi-content">
           <div className="bmi-left-column">
@@ -167,6 +168,8 @@ const BMI = () => {
           </div>
         </div>
       </div>
+      </div>
+      
       <div className='blur'></div>
       </motion.div>
   );

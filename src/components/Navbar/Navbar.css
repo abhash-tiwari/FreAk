@@ -13,8 +13,7 @@
 }
 
 .nav-container.scrolled {
-  /* background-color: black; */
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(1px);
   border-radius: 1rem;
   height: 50px;
 }

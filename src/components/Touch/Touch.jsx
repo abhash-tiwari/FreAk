@@ -2,17 +2,17 @@ import React, { useState, useEffect } from 'react';
 import emailjs from 'emailjs-com';
 import './Touch.css';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom'; // For routing
+import { useNavigate } from 'react-router-dom';
 
 const GetInTouch = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    program: '',
-    message: ''
+    name: "",
+    email: "",
+    program: "",
+    message: ""
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const navigate = useNavigate(); // Use navigate for redirection
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,42 +21,38 @@ const GetInTouch = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    const YOUR_SERVICE_ID = "service_1ca8g0m";
+    const YOUR_TEMPLATE_ID = "template_cvo8y6i";
+    const YOUR_PUBLIC_KEY = "uN3lMUILysdLVn5BA";
 
-    emailjs.sendForm(
-      'service_1ca8g0m',
-      'template_cvo8y6i',
-      e.target,
-      'uN3lMUILysdLVn5BA'
-    ).then(
-      (result) => {
-        console.log('Success:', result.text);
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      to_name: "Freak",
+      message: formData.message,
+    };
+
+    emailjs
+      .send(YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, templateParams, YOUR_PUBLIC_KEY)
+      .then((result) => {
+        console.log("Email Sent Successfully!", result.text);
+        setFormData({ name: "", email: "", program: "", message: "" });
         setIsSubmitted(true);
-      },
-      (error) => {
-        console.error('Failed:', error.text);
-      }
-    );
-
-    setFormData({
-      name: '',
-      email: '',
-      program: '',
-      message: ''
-    });
+      }).catch((err) => {
+        console.log("Error Sending Email", err);
+      });
   };
 
-  // Redirect after 3 seconds if form is submitted
   useEffect(() => {
     if (isSubmitted) {
       const timer = setTimeout(() => {
-        navigate('/'); // Redirect to the home route
+        navigate('/'); 
       }, 3000);
 
-      return () => clearTimeout(timer); // Clean up the timer on component unmount
+      return () => clearTimeout(timer);
     }
   }, [isSubmitted, navigate]);
-
-  const transition = { type: 'spring', duration: 3 };
 
   return (
     <div style={{ minHeight: "100vh" }}>
@@ -129,7 +125,7 @@ const GetInTouch = () => {
                 ></textarea>
               </div>
 
-              <button type="submit" className="submit-button">Send Message</button>
+              <button type="submit" className="submit-button" disabled={isSubmitted}>Send Message</button>
             </form>
           ) : (
             <motion.p

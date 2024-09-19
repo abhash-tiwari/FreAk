@@ -51,10 +51,10 @@ const Navbar = () => {
       return (
         <ul className="menu-container">
           <li><Link to='Hero' span={true} smooth={true} activeClass='active' style={linkStyle}><FontAwesomeIcon style={{ marginRight: '8px' }} />Home</Link></li>
-          <li><Link to='Programs' span={true} smooth={true} style={linkStyle}><FontAwesomeIcon style={{ marginRight: '8px' }} />Programs</Link></li>
-          <li><Link to='Why Us' span={true} smooth={true} style={linkStyle}><FontAwesomeIcon  style={{ marginRight: '8px' }} />Why Us</Link></li>
-          <li><Link to='Plans' span={true} smooth={true} style={linkStyle}><FontAwesomeIcon  style={{ marginRight: '8px' }} />Plans</Link></li>
-          <li><Link to='testimonials' span={true} smooth={true} style={linkStyle}><FontAwesomeIcon style={{ marginRight: '8px' }} />Testimonials</Link></li>
+          <li><Link to='Programs' span={true} smooth={true} offset={-60} style={linkStyle}><FontAwesomeIcon style={{ marginRight: '8px' }} />Programs</Link></li>
+          <li><Link to='Why Us' span={true} smooth={true} offset={-60} style={linkStyle}><FontAwesomeIcon  style={{ marginRight: '8px' }} />Why Us</Link></li>
+          <li><Link to='Plans' span={true} smooth={true} offset={-60} style={linkStyle}><FontAwesomeIcon  style={{ marginRight: '8px' }} />Plans</Link></li>
+          <li><Link to='testimonials' span={true} smooth={true} offset={-40} style={linkStyle}><FontAwesomeIcon style={{ marginRight: '8px' }} />Testimonials</Link></li>
         </ul>
       );
     } else {
@@ -88,11 +88,11 @@ const Navbar = () => {
         <ul className="menu-container">
           {location.pathname === '/' ? (
             <>
-              <li><Link to='Hero' span={true} smooth={true} onClick={toggleMenu} activeClass='active' style={linkStyle}><FontAwesomeIcon icon={faHome} style={{ marginRight: '8px' }} />Home</Link></li>
-              <li><Link to='Programs' span={true} smooth={true} onClick={toggleMenu} style={linkStyle}><FontAwesomeIcon icon={faDumbbell} style={{ marginRight: '8px' }} />Programs</Link></li>
-              <li><Link to='Why Us' span={true} smooth={true} onClick={toggleMenu} style={linkStyle}><FontAwesomeIcon icon={faInfoCircle} style={{ marginRight: '8px' }} />Why Us</Link></li>
-              <li><Link to='Plans' span={true} smooth={true} onClick={toggleMenu} style={linkStyle}><FontAwesomeIcon icon={faDollarSign} style={{ marginRight: '8px' }} />Plans</Link></li>
-              <li><Link to='testimonials' span={true} smooth={true} onClick={toggleMenu} style={linkStyle}><FontAwesomeIcon icon={faChalkboardTeacher} style={{ marginRight: '8px' }} />Testimonials</Link></li>
+              <li><Link to='Hero' span={true} smooth={true} offset={-60} onClick={toggleMenu} activeClass='active' style={linkStyle}><FontAwesomeIcon icon={faHome} style={{ marginRight: '8px' }} />Home</Link></li>
+              <li><Link to='Programs' span={true} smooth={true} offset={-60} onClick={toggleMenu} style={linkStyle}><FontAwesomeIcon icon={faDumbbell} style={{ marginRight: '8px' }} />Programs</Link></li>
+              <li><Link to='Why Us' span={true} smooth={true} offset={-60} onClick={toggleMenu} style={linkStyle}><FontAwesomeIcon icon={faInfoCircle} style={{ marginRight: '8px' }} />Why Us</Link></li>
+              <li><Link to='Plans' span={true} smooth={true} offset={-60} onClick={toggleMenu} style={linkStyle}><FontAwesomeIcon icon={faDollarSign} style={{ marginRight: '8px' }} />Plans</Link></li>
+              <li><Link to='testimonials' span={true} smooth={true} offset={-40} onClick={toggleMenu} style={linkStyle}><FontAwesomeIcon icon={faChalkboardTeacher} style={{ marginRight: '8px' }} />Testimonials</Link></li>
             </>
           ) : (
             <>

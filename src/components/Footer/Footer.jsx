@@ -1,30 +1,28 @@
-import React from 'react'
-import "./Footer.css"
-import github from "../../assets/github.png"
-import insta from "../../assets/instagram.png"
-import linkedin from "../../assets/linkedin.png"
-import logo from "../../assets/logo.fit.png"
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa';
+import './Footer.css'
+import { Link } from 'react-router-dom';
+
 
 const Footer = () => {
   return (
-    <div className='Footer-Container'>
-        <hr />
-        <div className="footer">
-            <div className="social-l">
-           <Link to="https://github.com/abhash-tiwari"> <img src={github} alt="" className="social"/></Link>
-           <Link to="https://github.com/abhash-tiwari"> <img src={insta} alt="" className="social"/></Link>
-           <Link to="https://www.linkedin.com/in/abhash-tiwari/"> <img src={linkedin} alt="" className="social"/></Link>
-            </div>
-        <div className="logo-f">
-            <img src={logo} alt="" />
+    <footer className="footer">
+      <hr />
+      <div className="footer-top">
+        <div className="social-icons">
+          <Link to='https://instagram.com/mahi.07club' target='#' aria-label="Instagram"><FaInstagram /></Link>
+          <Link to="https://github.com/abhash-tiwari/" target='#' aria-label="Facebook"><FaGithub /></Link>
+          <Link to="https://linkedin.com/in/abhash-tiwari/" target='#' aria-label="YouTube"><FaLinkedin /></Link>
         </div>
-        </div>
+        <p>Freak Fitness - Push Beyond Your Limits!</p>
+      </div>
 
-        <div className="blur footer-blur-1"></div>
-        <div className="blur footer-blur-2"></div>
-    </div>
-  )
-}
+      <div className="footer-bottom">
+        <p>&copy; 2024 Freak Fitness. All Rights Reserved.</p>
+        <Link to="/">Terms & Conditions</Link> | <Link to="/">Privacy Policy</Link>
+      </div>
+    </footer>
+  );
+};
 
-export default Footer
+export default Footer;

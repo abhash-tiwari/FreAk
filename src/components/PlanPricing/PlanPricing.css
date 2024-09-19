@@ -161,6 +161,10 @@
     max-width: 400px;
     width: 100%;
     color: #000;
+    margin: 0 auto;
+    top: 0; /* Center vertically */
+    transform: translateY(-50%); 
+    position: relative;
   }
 
   .modal-content input[type="email"] {
@@ -247,5 +251,12 @@
       margin-bottom: 20px;
       width: 600px;
       margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .modal-content {
+      top: 40%; /* Adjust for smaller screens */
+      transform: translateY(-40%);
     }
   }
