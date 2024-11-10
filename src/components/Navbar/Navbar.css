@@ -53,6 +53,13 @@ ul li:hover {
   color: orange;
 }
 
+.auth{
+  color: white;
+    background-color: transparent;
+    width: 9rem;
+    border: 2px solid orange;
+}
+
 /* Sticky navbar for larger screens only */
 @media (min-width: 769px) {
   .nav-container {
