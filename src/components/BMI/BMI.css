@@ -42,6 +42,7 @@
 .bmi-content {
   display: flex;
   padding: 20px;
+  max-width: 700px;
 }
 
 .bmi-left-column, .bmi-right-column {

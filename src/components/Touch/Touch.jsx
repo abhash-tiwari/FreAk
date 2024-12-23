@@ -3,8 +3,10 @@ import emailjs from 'emailjs-com';
 import './Touch.css';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const GetInTouch = () => {
+  const { user, isAuthenticated } = useAuth0(); // Get Auth0 user data
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -13,6 +15,17 @@ const GetInTouch = () => {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const navigate = useNavigate();
+
+  // Pre-fill form data with Auth0 user information when component mounts
+  useEffect(() => {
+    if (isAuthenticated && user) {
+      setFormData(prevData => ({
+        ...prevData,
+        name: user.name || '',
+        email: user.email || ''
+      }));
+    }
+  }, [isAuthenticated, user]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -80,6 +93,7 @@ const GetInTouch = () => {
                   onChange={handleChange}
                   className="form-input"
                   required
+                  readOnly={isAuthenticated}
                 />
               </div>
 
@@ -93,6 +107,7 @@ const GetInTouch = () => {
                   onChange={handleChange}
                   className="form-input"
                   required
+                  readOnly={isAuthenticated}
                 />
               </div>
 

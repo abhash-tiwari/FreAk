@@ -3,6 +3,7 @@ import './PlanPricing.css';
 import { plans } from '../../data/planPricingData';
 import emailjs from 'emailjs-com';
 import { motion } from 'framer-motion';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const PlanOption = ({ title, price, duration, features, isSelected, onSelect }) => (
   <div className={`plan-option ${isSelected ? 'selected' : ''}`}>
@@ -23,8 +24,8 @@ const PlanOption = ({ title, price, duration, features, isSelected, onSelect }) 
   </div>
 );
 
-const SignupModal = ({ onClose }) => {
-  const [email, setEmail] = useState('');
+const SignupModal = ({ onClose, prefilledEmail }) => {
+  const [email, setEmail] = useState(prefilledEmail || '');
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [message, setMessage] = useState('');
 
@@ -44,7 +45,6 @@ const SignupModal = ({ onClose }) => {
     emailjs.send('service_1ca8g0m', 'template_cvo8y6i', templateParams, 'uN3lMUILysdLVn5BA')
       .then((response) => {
         setMessage('Thank you for your interest');
-        // Close the modal after 2 seconds
         setTimeout(() => {
           onClose();
         }, 2000);
@@ -94,8 +94,11 @@ const SignupModal = ({ onClose }) => {
 };
 
 const PlanPricing = () => {
+  const { user, isAuthenticated } = useAuth0();
   const [selectedPlan, setSelectedPlan] = useState('PREMIUM');
   const [showModal, setShowModal] = useState(false);
+
+  const prefilledEmail = isAuthenticated ? user.email : '';
 
   return (
     <div className="pcontainer">
@@ -128,7 +131,7 @@ const PlanPricing = () => {
           Proceed
         </button>
       </div>
-      {showModal && <SignupModal onClose={() => setShowModal(false)} />}
+      {showModal && <SignupModal onClose={() => setShowModal(false)} prefilledEmail={prefilledEmail} />}
     </motion.div>
     </div>
     
