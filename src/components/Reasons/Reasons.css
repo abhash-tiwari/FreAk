@@ -91,16 +91,19 @@
       gap: 2rem;
     }
     .left-r{
-      grid-auto-rows: auto;
+      /* grid-auto-rows: auto; */
+      display: block;
       overflow: hidden;
     }
     .left-r > :nth-child(1){
       width: 7rem;
       height: 19rem;
+      display: none;
     }
     .left-r > :nth-child(2){
       width: 7rem;
       height: 19rem;
+      display: none;
     }
     .left-r > :nth-child(3){
       width: 17rem;
