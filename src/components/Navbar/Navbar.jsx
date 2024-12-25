@@ -145,8 +145,8 @@ const Navbar = () => {
               <li><Link to='testimonials' span={true} smooth={true} offset={-40} onClick={toggleMenu} style={linkStyle}><FontAwesomeIcon icon={faChalkboardTeacher} style={{ marginRight: '8px' }} />Testimonials</Link></li>
               <li>{isAuthenticated && <p>Welcome! {user.name}</p>}</li>
               {isAuthenticated ? 
-                (<li><button className='auth' onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>Log Out</button></li>) :
-                (<li><button className='authbtn' onClick={() => loginWithRedirect()}>Log In</button></li>)
+                (<li><button className='authbtn btn' onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>Log Out</button></li>) :
+                (<li><button className='authbtn btn' onClick={() => loginWithRedirect()}>Log In</button></li>)
               }
             </>
           ) : (
@@ -160,8 +160,8 @@ const Navbar = () => {
               <li><RouterLink to='/learnmore' onClick={toggleMenu} style={linkStyle}><FontAwesomeIcon icon={faInfoCircle} style={{ marginRight: '8px' }} />Learn More</RouterLink></li>
               <li>{isAuthenticated && <p>Welcome! {user.name}</p>}</li>
               {isAuthenticated ? 
-                (<li><button className='authbtn' onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>Log Out</button></li>) :
-                (<li><button className='authbtn' onClick={() => loginWithRedirect()}>Log In</button></li>)
+                (<li><button className='authbtn btn' onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>Log Out</button></li>) :
+                (<li><button className='authbtn btn' onClick={() => loginWithRedirect()}>Log In</button></li>)
               }
             </>
           )}

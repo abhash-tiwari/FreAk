@@ -54,7 +54,7 @@ ul li:hover {
 }
 
 .auth{
-  color: white;
+    color: white;
     background-color: transparent;
     width: 9rem;
     border: 2px solid orange;
