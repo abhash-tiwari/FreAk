@@ -7,8 +7,8 @@ import Footer from './components/Footer/Footer';
 import AnimatedWrapper from './components/AnimatedWrapper/AnimatedWrapper';
 import Loader from './components/Loader/Loader';
 
-import { Auth0ProviderWithHistory } from './components/auth/Auth0ProviderWithHistory';
 import ProtectedRoute from './components/auth/ProtectedRoute';
+import WorkoutGrid from './components/Workouts/Workouts';
 
 // Lazy load components
 const Hero = lazy(() => import('./components/Hero/Hero'));
@@ -83,6 +83,11 @@ function AppContent() {
             <Route path="/getintouch" element={<AnimatedWrapper><GetInTouch /></AnimatedWrapper>} />
             <Route path="/pricing" element={<AnimatedWrapper><PlanPricing /></AnimatedWrapper>} />
             <Route path="/camera" element={<AnimatedWrapper><CameraCapture /></AnimatedWrapper>} />
+            <Route path="/workout" element={<AnimatedWrapper><WorkoutGrid /></AnimatedWrapper>} />
+            {/* <Route path="/exercises" element={<AnimatedWrapper><ExerciseExplorer /></AnimatedWrapper>} />
+            <Route path="/exercisedemo" element={<AnimatedWrapper><ExerciseDemo /></AnimatedWrapper>} /> */}
+            {/* <Route path="/cal" element={<AnimatedWrapper><BMICalculator /></AnimatedWrapper>} /> */}
+
 
             {/* Protected Routes - Require Authentication */}
             <Route 

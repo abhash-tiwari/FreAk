@@ -121,16 +121,17 @@ const BMI = () => {
               <div className="form-group">
                 <p>Gender</p>
                 <div className="radio-group">
-                  <label>
+                  <label style={{color:'white'}}>
                     <input
                       type="radio"
                       value="male"
                       checked={gender === 'male'}
                       onChange={() => setGender('male')}
+                      
                     />
                     Male
                   </label>
-                  <label>
+                  <label style={{color:'white'}}>
                     <input
                       type="radio"
                       value="female"

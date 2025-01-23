@@ -1,64 +1,65 @@
 import React, { useState } from 'react';
 import './Hero.css';
-import hero from "../../assets/abs.jpg";
 import Heart from "../../assets/heart.png";
-import imgB from '../../assets/hero_image_back.png';
 import Calories from "../../assets/calories.png";
 import { motion } from 'framer-motion';
 import NumberCounter from 'number-counter';
 import { useNavigate } from 'react-router-dom';
 import vid from "../../assets/bg.mp4";
-import { useAuth0 } from "@auth0/auth0-react";
 
 const Hero = () => {
   const transition = { type: "spring", duration: 3 };
-  const mobile = window.innerWidth <= 768 ? true : false;
+  const mobile = window.innerWidth <= 768;
   const navigate = useNavigate();
-  const { isAuthenticated, loginWithRedirect } = useAuth0();
   const [showAlert, setShowAlert] = useState(false);
 
-  // Custom notification styles
+  // Function to check if the user is authenticated
+  const checkIsAuthenticated = () => {
+    // Check if token exists in localStorage
+    return localStorage.getItem('token') !== null;
+  };
+
+
+  // Alert style
   const alertStyle = {
-    position: 'fixed',
-    top: '20px',
-    left: '50%',
-    transform: 'translateX(-50%)',
-    backgroundColor: '#ff4444',
-    color: 'white',
-    padding: '1rem',
-    borderRadius: '5px',
-    boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+    position: "absolute", // Positioned relative to the Navbar
+    top: "10%", // Center vertically in the Navbar
+    left: "50%", // Center horizontally in the Navbar
+    transform: "translate(-50%, -50%)", // Adjust for perfect centering
+    backgroundColor: "rgba(255, 0, 0, 0.9)", // Soothing blue background
+    color: "white",
+    padding: "12px 24px",
+    borderRadius: "8px",
+    fontSize: "16px",
+    fontWeight: "500",
+    textAlign: "center",
+    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.2)",
     zIndex: 1000,
-    textAlign: 'center',
-    animation: 'fadeIn 0.3s ease-in',
-    minWidth: '300px'
+    animation: "fadeInOut 3s ease-in-out",
+    maxWidth: "80%", // Handles responsiveness
+    whiteSpace: "nowrap", // Prevent text wrapping
+    overflow: "hidden",
+    textOverflow: "ellipsis", // Handles long text gracefully
   };
 
+  // Handle protected route navigation
   const handleProtectedRoute = (route) => {
-    if (!isAuthenticated) {
-      setShowAlert(true);
-      // Hide alert after 3 seconds
-      setTimeout(() => setShowAlert(false), 3000);
-      return;
+    if (!checkIsAuthenticated()) {
+      setShowAlert(true); // Show alert
+      setTimeout(() => setShowAlert(false), 3000); // Hide alert after 3 seconds
+      return; // Stop further navigation
     }
-    navigate(route);
+    navigate(route); // Navigate to the route if authenticated
   };
 
-  const handleExplore = () => {
-    handleProtectedRoute('/exercises');
-  };
-
-  const handleLm = () => {
-    navigate('/coaches'); // This is not protected
-  };
-
-  const handleBmi = () => {
-    handleProtectedRoute('/cal');
-  };
+  // Route handlers
+  const handleExplore = () => handleProtectedRoute('/exercises');
+  const handleBmi = () => handleProtectedRoute('/cal');
+  const handleWrkt = () => handleProtectedRoute('/workout');
+  const handleLm = () => navigate('/coaches'); // Public route, no check needed
 
   return (
     <div className='hero' id='Hero'>
-      {/* Custom Alert */}
       {showAlert && (
         <div style={alertStyle}>
           Please log in to access this feature
@@ -113,6 +114,7 @@ const Hero = () => {
           <button onClick={handleLm} className="btn">About</button>
           <button onClick={handleExplore} className="btn">Explore Exercises</button>
           <button onClick={handleBmi} className="btn">Check Your BMI</button>
+          <button onClick={handleWrkt} className="btn">Workout Plan</button>
         </div>
       </div>
       <div className="right">

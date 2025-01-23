@@ -1,0 +1,228 @@
+.workout-container {
+  padding: 2rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  min-height: 100vh;
+  margin-top: 4rem;
+}
+
+/* Header Styling */
+.title-w {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 2rem 0;
+  text-transform: uppercase;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.hr-w {
+  width: 12rem;
+  height: 4px;
+  background: #f97316;
+  border: none;
+  border-radius: 2px;
+  margin: 0.5rem 0;
+}
+
+/* Grid Layout */
+.workout-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Reduced from 300px */
+  gap: 1.5rem; /* Reduced from 2rem */
+  padding: 10px;
+  max-width: 1400px; /* Reduced from 1400px */
+  margin: 0 auto;
+}
+
+/* Card Styling */
+.workout-card {
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  height: fit-content;
+}
+
+.workout-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Card Content */
+.workout-title {
+  font-size: 1.25rem; 
+  font-weight: 600;
+  color: #1a202c;
+  margin-bottom: 0.75rem;
+  position: absolute;
+  top: 5px;
+  text-transform: uppercase;
+}
+
+.exercises-section {
+  margin-top: 0.75rem; 
+}
+
+
+/* Exercise List */
+.exercise-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.exercise-item {
+  position: relative;
+  padding-top: 10px; /* Reduced from 200px */
+  background: #f8fafc;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.exercise-image {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px; /* Reduced from 200px */
+  object-fit: cover;
+  border-radius: 0.5rem 0.5rem 0 0;
+  background-color: #e2e8f0;
+}
+
+.exercise-details {
+  padding: 0.75rem; /* Reduced from 1rem */
+}
+
+.exercise-details p {
+  margin: 0.4rem 0;
+  font-size: 0.9rem; /* Reduced from 0.95rem */
+  color: #4a5568;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.exercise-details strong {
+  color: #2d3748;
+  min-width: 90px; /* Reduced from 100px */
+}
+
+/* Button Styling */
+.remove-button {
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  width: 100%;
+  margin-top: auto;
+  font-size: 0.9rem;
+}
+
+.remove-button:hover {
+  background-color: #dc2626;
+}
+
+/* Status Messages */
+.no-workouts {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #64748b;
+  padding: 2rem;
+  background: white;
+  border-radius: 0.5rem;
+  margin: 2rem auto;
+  max-width: 500px;
+}
+
+.no-workout-button {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #64748b;
+  background: white;
+  border-radius: 0.5rem;
+  margin: 0.5rem auto;
+}
+
+.workout-reminder {
+  text-align: center;
+  font-size: 1rem;
+  color: #f97316;
+  margin-top: 1.5rem;
+  font-weight: 500;
+}
+
+/* Loading & Error States */
+.loading-state,
+.error-state {
+  text-align: center;
+  padding: 1.5rem;
+  color: #64748b;
+  font-size: 1.1rem;
+}
+
+.error-state {
+  color: #ef4444;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .workout-container {
+    padding: 1rem;
+  }
+
+  .title-w {
+    font-size: 1.75rem;
+    text-align: center;
+    padding-left: 0;
+  }
+
+  .hr-w {
+    width: 8rem;
+    margin: 0.5rem auto;
+  }
+
+  .workout-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .exercise-item {
+    padding-top: 140px;
+  }
+
+  .exercise-image {
+    height: 140px; 
+  }
+}
+
+@media (max-width: 480px) {
+  .title-w {
+    font-size: 1.5rem;
+  }
+
+  .workout-card {
+    padding: 0.75rem;
+  }
+
+  .exercise-details p {
+    font-size: 0.85rem;
+  }
+
+  .remove-button {
+    padding: 0.5rem 1rem;
+  }
+}

@@ -99,6 +99,35 @@ const Exercises = () => {
     }
   };
 
+
+  const handleAddWorkout = async (exercise) => {
+    try {
+      const response = await fetch('https://freak-backend.onrender.com/api/workouts/add', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token')}`, // Assuming token is stored in localStorage
+        },
+        body: JSON.stringify({
+          title: exercise.name,
+          description: `Workout focusing on ${exercise.bodyPart}`,
+          exercises: [exercise],
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert('Workout added successfully!');
+      } else {
+        alert(`Failed to add workout: ${data.message}`);
+      }
+    } catch (error) {
+      console.error('Error adding workout:', error);
+      alert('An error occurred while adding the workout.');
+    }
+  };
+
   return (
     <div className="exercises-container">
       <hr className='hr-e'/>
@@ -147,13 +176,19 @@ const Exercises = () => {
       <div className="exercises-list">
         {filteredExercises.length > 0 ? (
           filteredExercises.map((exercise) => (
-            <div key={exercise.id} className="exercise-card" onClick={() => handleExerciseClick(exercise)}>
+            <div key={exercise.id} className="exercise-card">
               <h2 className="exercise-name">{exercise.name}</h2>
-              <img className="exercise-img" src={exercise.gifUrl} alt={exercise.name} />
+              <img onClick={() => handleExerciseClick(exercise)} className="exercise-img" src={exercise.gifUrl} alt={exercise.name} />
               <div className='e'>
                 <p className="exercise-content">Body Part: {exercise.bodyPart}</p>
                 <p className="exercise-content">Equipment: {exercise.equipment}</p>
                 <p className="exercise-content">Target: {exercise.target}</p>
+                <button
+                  className="btn add-btn"
+                  onClick={() => handleAddWorkout(exercise)}
+                >
+                  Add
+                </button>
               </div>
             </div>
           ))

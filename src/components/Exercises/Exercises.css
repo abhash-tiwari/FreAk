@@ -117,11 +117,11 @@
 .exercise-img {
     width: 200px;
     height: auto;
-    margin-top: 10px;
+    margin-top: 7px;
     border-radius: 5px;
     flex-shrink: 0;
     position: absolute;
-    top: 105px;
+    top: 74px;
     left: 36px;
 }
 

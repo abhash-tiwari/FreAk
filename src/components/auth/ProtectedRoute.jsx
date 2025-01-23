@@ -1,17 +1,14 @@
-import { useAuth0 } from "@auth0/auth0-react";
 import { Navigate } from "react-router-dom";
 
 const ProtectedRoute = ({ children }) => {
-  const { isAuthenticated, isLoading } = useAuth0();
+  const token = localStorage.getItem("token");
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!isAuthenticated) {
+  // If no token is found, redirect to the home page
+  if (!token) {
     return <Navigate to="/" replace />;
   }
 
+  // If a token is present, render the protected content
   return children;
 };
 
