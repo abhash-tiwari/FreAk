@@ -201,11 +201,11 @@
   }
 
   .exercise-item {
-    padding-top: 140px;
+    padding-top: 10px;
   }
 
   .exercise-image {
-    height: 140px; 
+    height: auto; 
   }
 }
 
