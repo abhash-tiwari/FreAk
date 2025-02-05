@@ -2,7 +2,7 @@ import React, { Suspense, lazy, useLayoutEffect, useEffect, useState, useCallbac
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Auth0Provider } from '@auth0/auth0-react';
 import './App.css';
-import Navbar from './components/Navbar/Navbar';
+// import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import AnimatedWrapper from './components/AnimatedWrapper/AnimatedWrapper';
 import Loader from './components/Loader/Loader';
@@ -11,6 +11,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import WorkoutGrid from './components/Workouts/Workouts';
 
 // Lazy load components
+const Navbar = lazy(() => import('./components/Navbar/Navbar'));
 const Hero = lazy(() => import('./components/Hero/Hero'));
 const Join = lazy(() => import('./components/Join/Join'));
 const Plans = lazy(() => import('./components/Plans/Plans'));

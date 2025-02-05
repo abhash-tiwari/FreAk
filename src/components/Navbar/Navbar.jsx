@@ -6,136 +6,6 @@ import Logo from '../../assets/logo.fit.png';
 import bars from '../../assets/bars.png';
 import AuthModal from '../authModal/authModal';
 
-// // Separate AuthModal component
-// const AuthModal = ({ onClose, onAuth }) => {
-//   const [isLogin, setIsLogin] = useState(true);
-//   const [formData, setFormData] = useState({
-//     name: '',
-//     email: '',
-//     password: ''
-//   });
-
-
-//   useEffect(() => {
-//     const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-//     document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
-//     document.body.classList.add('modal-open');
-    
-//     return () => {
-//       document.body.classList.remove('modal-open');
-//       document.documentElement.style.removeProperty('--scrollbar-width');
-//     };
-//   }, []);
-
-
-//   const handleInputChange = (e) => {
-//     const { name, value } = e.target;
-//     setFormData(prevState => ({
-//       ...prevState,
-//       [name]: value
-//     }));
-//   };
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     try {
-//       const endpoint = isLogin ? 'http://localhost:5000/api/auth/login' : 'http://localhost:5000/api/auth/register';
-//       const response = await fetch(endpoint, {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(formData),
-//       });
-
-//       if (response.ok) {
-//         const data = await response.json();
-//         onAuth(data);
-//         onClose();
-//       } else {
-//         const error = await response.json();
-//         alert(error.message);
-//       }
-//     } catch (error) {
-//       console.error('Auth error:', error);
-//       alert('An error occurred. Please try again.');
-//     }
-//   };
-
-//   const toggleMode = () => {
-//     setIsLogin(!isLogin);
-//     setFormData({
-//       name: '',
-//       email: '',
-//       password: ''
-//     });
-//   };
-
-//   return (
-//     <div className="modal-overlay" onClick={onClose}>
-//       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-//         <div className="modal-header">
-//           <h2>{isLogin ? 'Login' : 'Register'}</h2>
-//           <button className="close-btn" onClick={onClose}>&times;</button>
-//         </div>
-//         <form className="auth-form" onSubmit={handleSubmit}>
-//           {!isLogin && (
-//             <div className="form-group">
-//               <label htmlFor="name">Name</label>
-//               <input
-//                 type="text"
-//                 id="name"
-//                 name="name"
-//                 value={formData.name}
-//                 onChange={handleInputChange}
-//                 placeholder="Enter your name"
-//                 required={!isLogin}
-//                 autoComplete="name"
-//               />
-//             </div>
-//           )}
-//           <div className="form-group">
-//             <label htmlFor="email">Email</label>
-//             <input
-//               type="email"
-//               id="email"
-//               name="email"
-//               value={formData.email}
-//               onChange={handleInputChange}
-//               placeholder="Enter your email"
-//               required
-//               autoComplete="email"
-//             />
-//           </div>
-//           <div className="form-group">
-//             <label htmlFor="password">Password</label>
-//             <input
-//               type="password"
-//               id="password"
-//               name="password"
-//               value={formData.password}
-//               onChange={handleInputChange}
-//               placeholder="Enter your password"
-//               required
-//               autoComplete="current-password"
-//             />
-//           </div>
-//           <button type="submit" className="btn">
-//             {isLogin ? 'Login' : 'Register'}
-//           </button>
-//         </form>
-//         <p className="toggle-auth">
-//           {isLogin ? "Don't have an account? " : "Already have an account? "}
-//           <span className="toggle-link" onClick={toggleMode}>
-//             {isLogin ? 'Register' : 'Login'}
-//           </span>
-//         </p>
-//       </div>
-//     </div>
-//   );
-// };
-
-// Main Navbar component
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -167,17 +37,6 @@ const Navbar = () => {
     };
   }, []);
 
-  // const handleAuth = (authData) => {
-  //   localStorage.setItem('token', authData.token);
-  //   setUser(authData.user);
-  //   setIsAuthenticated(true);
-  // };
-
-  // const handleLogout = () => {
-  //   localStorage.removeItem('token');
-  //   setIsAuthenticated(false);
-  //   setUser(null);
-  // };
   useEffect(() => {
     const verifyAuth = async () => {
       const token = localStorage.getItem('token');
@@ -257,8 +116,8 @@ const Navbar = () => {
           <li><Link to='testimonials' span={true} smooth={true} offset={-40} style={linkStyle}>Testimonials</Link></li>
           <li>{isAuthenticated && <p>Welcome! {user?.name}</p>}</li>
           {isAuthenticated ? 
-            (<li><button className='btn' onClick={handleLogout}>Log Out</button></li>) :
-            (<li><button className='btn' onClick={() => setShowAuthModal(true)}>Login</button></li>)
+            (<li><button className='btn' style={{marginTop:"-3px"}} onClick={handleLogout}>Log Out</button></li>) :
+            (<li><button className='btn' style={{marginTop:"-3px"}} onClick={() => setShowAuthModal(true)}>Login</button></li>)
           }
         </ul>
       );
