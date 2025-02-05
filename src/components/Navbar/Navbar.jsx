@@ -116,8 +116,8 @@ const Navbar = () => {
           <li><Link to='testimonials' span={true} smooth={true} offset={-40} style={linkStyle}>Testimonials</Link></li>
           <li>{isAuthenticated && <p>Welcome! {user?.name}</p>}</li>
           {isAuthenticated ? 
-            (<li><button className='btn' style={{marginTop:"-3px"}} onClick={handleLogout}>Log Out</button></li>) :
-            (<li><button className='btn' style={{marginTop:"-3px"}} onClick={() => setShowAuthModal(true)}>Login</button></li>)
+            (<li><button className='btn' style={{marginTop:"0px"}} onClick={handleLogout}>Log Out</button></li>) :
+            (<li><button className='btn' style={{marginTop:"0px"}} onClick={() => setShowAuthModal(true)}>Login</button></li>)
           }
         </ul>
       );
